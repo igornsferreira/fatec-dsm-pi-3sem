@@ -38,10 +38,8 @@ Este projeto foi desenvolvido utilizando Python, Django e MongoDB. Siga as instr
     ```bash
     git clone https://github.com/igornsferreira/fatec-dsm-pi-3sem.git
     ```
-2. Navegue até o diretório do projeto:
-    ```bash
-    cd fatec-dsm-pi-3sem
-    ```
+2. Navegue até o diretório do projeto.
+
 3. Crie um ambiente virtual Python e ative-o:
     ```bash
     python -m venv venv
