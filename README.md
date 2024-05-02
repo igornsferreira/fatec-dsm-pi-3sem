@@ -62,4 +62,4 @@ Este projeto foi desenvolvido utilizando Python, Django e MongoDB. Siga as instr
     ```bash
     python manage.py runserver
     ```
-Agora, você deve ser capaz de acessar o projeto em `http://localhost:8000/`.
+Agora, você deve ser capaz de acessar o projeto.
