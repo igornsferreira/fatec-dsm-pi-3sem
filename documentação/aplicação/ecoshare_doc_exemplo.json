@@ -1,0 +1,37 @@
+{
+    "_id": "ObjectId",
+    "nome_completo": "Nome Sobrenome",
+    "cpf": "123.456.789-00",
+    "email": "exemplo@email.com",
+    "senha": "password",
+    "telefone": "(00) 12345-6789",
+    "data_nascimento": "YYYY-MM-DD",
+    "endereco": {
+      "cep": "00000-000",
+      "rua": "Nome da Rua",
+      "bairro": "Nome do Bairro",
+      "numero": "123",
+      "cidade": "Nome da Cidade",
+      "estado": "UF",
+      "pais": "Nome do País"
+    },
+    "doacoes": [
+      {
+        "id": "ObjectId",
+        "material_doado": "Material",
+        "peso": 10,
+        "data": "YYYY-MM-DD",
+        "item_recebido": "Saco de Arroz",
+        "validacao": true
+      },
+      {
+        "id": "ObjectId",
+        "material_doado": "Material",
+        "peso": 5,
+        "data": "YYYY-MM-DD",
+        "item_recebido": "Cesta Básica",
+        "validacao": false
+      }
+    ]
+  }
+  
