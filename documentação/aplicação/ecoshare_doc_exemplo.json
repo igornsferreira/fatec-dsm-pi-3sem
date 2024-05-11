@@ -4,7 +4,7 @@
   "email": "exemplo@email.com",
   "senha": "password",
   "telefone": "(00) 00000-0000",
-  "data_nascimento": new Date("YYYY-MM-DD"),
+  "data_nascimento": "YYYY-MM-DD",
   "endereco": {
       "cep": "00000-000",
       "rua": "Nome da Rua",
@@ -16,26 +16,26 @@
   },
   "doacoes": [
       {
-          "id": ObjectId(),
+          "id": "ObjectId()",
           "material_doado": "Material 1",
           "peso": 10,
-          "data": new Date("YYYY-MM-DD"),
+          "data": "YYYY-MM-DD",
           "item_recebido": "Item 1",
           "validacao": true
       },
       {
-          "id": ObjectId(),
+          "id": "ObjectId()",
           "material_doado": "Material 2",
           "peso": 20,
-          "data": new Date("YYYY-MM-DD"),
+          "data": "YYYY-MM-DD",
           "item_recebido": "Item 2",
           "validacao": false
       },
       {
-          "id": ObjectId(),
+          "id": "ObjectId()",
           "material_doado": "Material 3",
           "peso": 30,
-          "data": new Date("YYYY-MM-DD"),
+          "data": "YYYY-MM-DD",
           "item_recebido": "Item 3",
           "validacao": true
       }
