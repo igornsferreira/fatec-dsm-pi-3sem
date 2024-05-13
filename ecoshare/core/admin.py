@@ -1,5 +1,4 @@
 from django.contrib import admin
-from .models import SeuModelo
 
 """ Super Usuário
 O nome de super usuário deve ser criado
