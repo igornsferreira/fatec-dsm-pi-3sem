@@ -1,4 +1,32 @@
-/*Teste*/ 
-h1 {
-    background-color: #dd0d0d;
+form {
+    margin-top: 110px;
 }
+
+input {
+    height: 43px;
+    
+}
+
+#left {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/teste.avif);
+    background-size: cover;
+    
+}
+
+#right {
+    padding: 0 87px;
+}
+
+.navbar-nav .nav-item a.nav-link {
+    text-decoration: none; 
+    color: #04723cff;
+    font-weight: 600;
+}
+
+.navbar-nav .nav-item a.nav-link:hover {
+    text-decoration: none; 
+    border-bottom: 2px solid #d75a1aff; 
+}
+

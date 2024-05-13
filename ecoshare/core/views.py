@@ -8,3 +8,7 @@ class IndexView(View):
 class CadastroView(View):
     def get(self, request):
         return render(request, 'cadastro.html')
+    
+class LoginView(View):
+    def get(self, request):
+        return render(request, 'login.html')
