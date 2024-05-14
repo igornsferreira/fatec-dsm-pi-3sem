@@ -36,7 +36,7 @@ class CadastroView(View):
         )
         usuario.save()
 
-        return redirect('index')
+        return redirect('index.html')
 
 
 class LoginView(View):
