@@ -1,34 +1,24 @@
 from django.db import models
 from djongo import models as djongo_models
 
-import uuid
-
-
 class Endereco(models.Model):
+    _id = djongo_models.ObjectIdField()
     cep = models.CharField(max_length=9)
     rua = models.CharField(max_length=100)
     bairro = models.CharField(max_length=50)
     numero = models.CharField(max_length=10)
     cidade = models.CharField(max_length=50)
-    estado = models.CharField(max_length=2)
+    estado = models.CharField(max_length=50)
     pais = models.CharField(max_length=50)
 
-    class Meta:
-        abstract = True
 
 class Doacao(models.Model):
-    id = models.CharField(max_length=24, unique=True, default=uuid.uuid4)
+    _id = djongo_models.ObjectIdField()
     material_doado = models.CharField(max_length=50)
     peso = models.IntegerField()
     data = models.DateField()
     item_recebido = models.CharField(max_length=50)
     validacao = models.BooleanField()
-
-    class Meta:
-        abstract = True
-
-    class Meta:
-        abstract = True
 
 class Usuario(models.Model):
     nome_completo = models.CharField(max_length=100)

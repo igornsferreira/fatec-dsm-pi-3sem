@@ -36,7 +36,8 @@
                     </ul>
                 </nav>
  
-                <form action="#" method="post">
+                <form action="{% url 'cadastro' %}" method="post">
+                    {% csrf_token %}
                     <input type="hidden" name="action" value="cadastrar">
                     <div class="row">
                         <div class="col-sm-12">                    
@@ -44,15 +45,17 @@
                         </div>
                         <div class="col-sm-6">                        
                             <input class="form-control mb-2" type="number" name="cpf" placeholder="CPF" required>
+                            <input class="form-control mb-2" type="date" name="data_nascimento" placeholder="Data de Nascimento" required>
                             <input class="form-control mb-2" type="text" name="rua" placeholder="Rua" required> 
                             <input class="form-control mb-2" type="text" name="bairro" placeholder="Bairro" required>                    
-                            <input class="form-control mb-2" type="text" name="estado" placeholder="Estado" required>                        
+                            <input class="form-control mb-2" type="text" name="estado" placeholder="Estado" required>                    
                         </div>
                         <div class="col-sm-6">
                             <input class="form-control mb-2" type="number" name="telefone" placeholder="Telefone" required>
-                            <input class="form-control mb-2" type="number" name="numero" placeholder="Número" required>
-                            <input class="form-control mb-2" type="text" name="cidade" placeholder="Cidade" required>                        
                             <input class="form-control mb-2" type="number" name="cep" placeholder="CEP" required>                        
+                            <input class="form-control mb-2" type="number" name="numero" placeholder="Número" required>
+                            <input class="form-control mb-2" type="text" name="cidade" placeholder="Cidade" required>   
+                            <input class="form-control mb-2" type="text" name="pais" placeholder="País" required>                     
                         </div>
                         <div class="col-sm-12">
                             <input class="form-control mb-2" type="text" name="email" placeholder="E-mail" required>
