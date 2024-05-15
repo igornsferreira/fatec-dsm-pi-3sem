@@ -38,7 +38,27 @@ class CadastroView(View):
 
         return redirect('index.html')
 
-
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
+
+class HomeClienteView(View):
+    def get(self, request):
+        return render(request, 'homeCliente.html')
+
+class RelatorioClienteView(View):
+    def get(self, request):
+        return render(request, 'relatorioCliente.html')
+
+class DoacoesClienteView(View):
+    def get(self, request):
+        return render(request, 'doacoesCliente.html')
+
+class BrindesClienteView(View):
+    def get(self, request):
+        return render(request, 'brindesCliente.html')
+
+class PerfilClienteView(View):
+    def get(self, request):
+        return render(request, 'perfilCliente.html')
+

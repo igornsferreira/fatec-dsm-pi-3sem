@@ -16,10 +16,10 @@ nav {
     font-weight: 600;
 }
 
-.navbar-nav .nav-item a.nav-link:hover {
-    text-decoration: none; 
-    border-bottom: 2px solid #d75a1aff; 
+.navbar-nav .nav-item a.nav-link.active {
+  border-bottom: 2px solid #d75a1aff; 
 }
+
 
 /*** Body login ***/ 
 
@@ -45,6 +45,87 @@ input {
     height: 41px;
 
 }
+
+/*** Sidebar ***/
+.sidebar {
+    margin: 0;
+    padding-top: 7px;
+    padding-left: 7px;
+    width: 200px;
+    background-color: #04723cff;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  /** links **/
+  .sidebar a {
+    display: block;
+    color: #ffffffff;
+    padding: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  
+  /** link activate **/
+  .sidebar a.active {
+    background-color: #ffffffff;
+    color: #04723cff;
+    border-top-left-radius: 30px; 
+    border-bottom-left-radius: 30px;
+    box-shadow: 2px 2px 15px gray;
+  }
+  
+  /** hover link **/
+  .sidebar a:hover:not(.active) {
+    background-color: #50be50ff;
+    color: #ffffffff;
+    border-top-left-radius: 30px; 
+    border-bottom-left-radius: 30px; 
+    box-shadow: 0px 0px 5px rgb(1, 207, 108);
+  }
+
+  /** icones **/ 
+  i {
+    color: #50be50ff;
+  }
+
+  .sidebar a:hover:not(.active) i {
+    color: #ffffffff;;
+  }
+  
+/*** Conteúdo ***/
+.content {
+  margin-left: 50px; 
+  padding: 20px; 
+  position: absolute; 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 200px; 
+  overflow-y: auto; 
+}
+
+  
+  /* On screens that are less than 700px wide, make the sidebar into a topbar
+  @media screen and (max-width: 700px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    div.content {margin-left: 0;}
+  } */
+  
+  /* On screens that are less than 400px, display the bar vertically, instead of horizontally 
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }*/
 
 
 
