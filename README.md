@@ -47,7 +47,7 @@ Este projeto foi desenvolvido utilizando Python, Django e MongoDB. Siga as instr
     ```
 4. Instale as dependências do projeto:
     ```bash
-    pip install -r requeriments.txt
+    pip install -r requirements.txt
     ```
 5. Use o MongoDB Compass para conectar-se ao localhost. Utilize o nome 'ecoshare_database' na criação do banco de dados e na coleção 'ecoshare'.
 
