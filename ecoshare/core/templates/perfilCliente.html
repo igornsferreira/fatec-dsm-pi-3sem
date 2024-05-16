@@ -34,8 +34,50 @@
 </div>
   
 <!-- Conteúdo -->
-<div class="content">
-    <h1>teste</h1>
+<div id="perfil" class="content">
+    <div class="card">
+        <form action="" method="post">
+            <h5>Editar perfil</h5>
+            <input type="hidden" name="action" value="alterar">
+            <div class="row" id="itens">
+                <div class="col-sm-6"> 
+                    <label for="nome">Nome</label>                   
+                    <input class="form-control mb-2" type="text" name="nome" placeholder="" required>                    
+                    <label for="telefone">Telefone</label>                     
+                    <input class="form-control mb-2" type="number" name="telefone" placeholder="" required>                      
+                    <label for="email">E-mail</label> 
+                    <input class="form-control mb-2" type="text" name="email" placeholder="" required>                  
+                    <label for="cep">CEP</label> 
+                    <input class="form-control mb-2" type="number" name="cep" placeholder="" required>                     
+                    <label for="numero">Número</label>                        
+                    <input class="form-control mb-2" type="number" name="numero" placeholder="" required>                     
+                    <label for="cidade">Cidade</label> 
+                    <input class="form-control mb-2" type="text" name="cidade" placeholder="" required>                     
+                    <label for="pais">País</label> 
+                    <input class="form-control mb-2" type="text" name="pais" placeholder="" required>                      
+                </div>
+                <div class="col-sm-6 gx-0">                    
+                    <label for="cpf">CPF</label>                        
+                    <input class="form-control mb-2" type="number" name="cpf" placeholder="" required>                    
+                    <label for="data_nascimento">Data de nascimento</label> 
+                    <input class="form-control mb-2" type="date" name="data_nascimento" placeholder="" required>  
+                    <label for="senha">Senha</label> 
+                    <input class="form-control mb-3" type="password" name="senha" placeholder="" required>               
+                    <label for="rua">Rua</label>                     
+                    <input class="form-control mb-2" type="text" name="rua" placeholder="" required>                     
+                    <label for="bairro">Bairro</label> 
+                    <input class="form-control mb-2" type="text" name="bairro" placeholder="" required>                       
+                    <label for="estado">Estado</label>                 
+                    <input class="form-control mb-2" type="text" name="estado" placeholder="" required>                     
+                </div>
+                <div class="col-sm-12">
+                </div>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
   
 

@@ -1,27 +1,29 @@
-/*** Navbar ***/
+
+/*** LOGIN E CADASTRO ***/ 
+
+/* navbar */
 
 nav {
-    background-color: white;
-    padding: 15px 0;
+  background-color: white;
+  padding: 15px 0;
 }
 
 .navbar-light .nav-toggler {
-    color: rgba (0, 0, 0, 0.5);
-    border-color: rgba (255, 255, 255, 0);
+  color: rgba (0, 0, 0, 0.5);
+  border-color: rgba (255, 255, 255, 0);
 }
 
 .navbar-nav .nav-item a.nav-link {
-    text-decoration: none; 
-    color: #04723cff;
-    font-weight: 600;
+  text-decoration: none; 
+  color: #04723cff;
+  font-weight: 600;
 }
 
 .navbar-nav .nav-item a.nav-link.active {
-  border-bottom: 2px solid #d75a1aff; 
+border-bottom: 2px solid #d75a1aff; 
 }
 
-
-/*** Body login ***/ 
+/* body */
 
 #left {
     height: 100vh;
@@ -34,19 +36,17 @@ nav {
     padding: 0 87px;
 }
 
+/* Formulario */
 
-/*** Formulario ***/
-
-form {
+#login form {
     margin-top: 93px;
 }
 
-input {
+#login input {
     height: 41px;
-
 }
 
-/*** Sidebar ***/
+/*** SIDEBAR ***/
 .sidebar {
     margin: 0;
     padding-top: 7px;
@@ -58,7 +58,7 @@ input {
     overflow: auto;
   }
   
-  /** links **/
+  /* links */
   .sidebar a {
     display: block;
     color: #ffffffff;
@@ -68,7 +68,7 @@ input {
     font-size: 16px;
   }
   
-  /** link activate **/
+  /* link activate */
   .sidebar a.active {
     background-color: #ffffffff;
     color: #04723cff;
@@ -77,7 +77,7 @@ input {
     box-shadow: 2px 2px 15px gray;
   }
   
-  /** hover link **/
+  /* hover link */
   .sidebar a:hover:not(.active) {
     background-color: #50be50ff;
     color: #ffffffff;
@@ -86,7 +86,7 @@ input {
     box-shadow: 0px 0px 5px rgb(1, 207, 108);
   }
 
-  /** icones **/ 
+  /* icones */ 
   i {
     color: #50be50ff;
   }
@@ -105,6 +105,18 @@ input {
   bottom: 0;
   left: 200px; 
   overflow-y: auto; 
+}
+
+/*** PERFIL DO CLIENTE  ***/ 
+
+/* card */
+
+#itens{
+  padding: 50px;
+}
+
+#perfil input {
+  width: 70%;
 }
 
   
