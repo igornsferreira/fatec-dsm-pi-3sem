@@ -29,3 +29,6 @@ class Usuario(models.Model):
     data_nascimento = models.DateField()
     endereco = djongo_models.EmbeddedField(model_container=Endereco)
     doacoes = djongo_models.ArrayField(model_container=Doacao)
+
+    class Meta:
+        db_table = 'ecoshare'  # Define o nome da coleção no MongoDB
