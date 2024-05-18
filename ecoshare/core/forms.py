@@ -52,4 +52,4 @@ class UsuarioForm(forms.ModelForm):
     
     def clean_doacoes(self):
         doacoes = self.cleaned_data['doacoes']
-        return doacoes
+        return doacoes    

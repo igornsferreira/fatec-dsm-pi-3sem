@@ -49,5 +49,8 @@ class Migration(migrations.Migration):
                 ('endereco', djongo.models.fields.EmbeddedField(model_container=core.models.Endereco)),
                 ('doacoes', djongo.models.fields.ArrayField(model_container=core.models.Doacao)),
             ],
+            options={
+                'db_table': 'ecoshare',
+            },
         ),
     ]

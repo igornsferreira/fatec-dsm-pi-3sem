@@ -35,12 +35,12 @@ class CadastroView(View):
         )
         usuario.save()
 
-        return redirect('index')
-
+        return redirect('login')
+    
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
-
+        
 class HomeClienteView(View):
     def get(self, request):
         return render(request, 'homeCliente.html')
