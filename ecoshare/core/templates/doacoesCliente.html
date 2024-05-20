@@ -34,6 +34,46 @@
 </div>
 
 
+<div id="doacao" class="content">
+    <div class="card">
+        <form action="" method="post">
+            <h5>Cadastrar doação</h5>
+            <input type="hidden" name="action" value="cadastrar">
+            <div class="row" id="itens">
+                <div class="col-sm-6"> 
+                    <label for="nome">Data</label>                   
+                    <input class="form-control mb-2" type="date" name="nome" placeholder="Data da doação" required>       
+                    <label for="material">Material</label>
+                    <select class="form-control mb-2" name="material" id="material" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="garrafa_pet">Garrafa Pet</option>
+                        <option value="detergente">Detergente</option>
+                        <option value="amaciante">Amaciante</option>
+                        <option value="shampoo">Shampoo</option>
+                    </select>
+                    <label for="peso">Peso</label> 
+                    <input class="form-control mb-5" type="number" name="peso" placeholder="" required>               
+                </div>
+                <div class="col-sm-12 mb-3">
+                        <input type="checkbox" class="" id="termos" name="termos">
+                        <label for="termos" class="form-check-label">Estou de acordo e confirmo a doação dos materiais em bom estado</label>
+                      </form>
+                </div>
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-custom mt-3">Salvar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
 </body>
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

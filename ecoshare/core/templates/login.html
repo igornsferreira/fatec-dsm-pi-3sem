@@ -41,16 +41,21 @@
                     {% csrf_token %}
                     <div class="">
                         <div class="col-sm-12 mb-2">
-                            <input class="form-control" type="email" name="email" placeholder="E-mail" required>
+                            <input class="form-control custom-border" type="email" name="email" placeholder="E-mail" required>
                         </div>
                         <div class="col-sm-12 mb-3">
                             <input class="form-control" type="password" name="senha" placeholder="Senha" required>
                         </div>
                         <div class="col-sm-12 mb-3">
-                            <a href="#">Esqueceu sua senha?</a>
+                            <label class="form-check-label"><input class="form-check-input" type="checkbox" value="" id="remember_me">
+                                Lembre-se de mim
+                            </label>
+                        </div>
+                        <div class="col-sm-12 mb-3 mt-5">
+                            <a href="#" class="password">Esqueceu sua senha?</a>
                         </div>
                         <div class="col-sm-12 mb-3">
-                            <button type="submit" class="btn btn-custom">Entrar</button>
+                            <button type="submit" class="btn btn-custom mt-3">Entrar</button>
                         </div>
                     </div>
                 </form>
