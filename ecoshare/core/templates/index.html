@@ -17,35 +17,116 @@
         <title>EcoShare</title>
     </head>
 <body>
-     
-    <header>
-        <nav class="navbar navbar-expand-md navbar-light fixed-top">
-          <div class="container">
-            <a href="{% url 'index' %}"><img src="#" alt="Logo" width="280"></a>
 
-            <!--botão da navbar no small-->
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-principal"></button> 
-      
-            <div class="collapse navbar-collapse" id="nav-principal">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item ml-3">
-                  <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item ml-3">
-                  <a href="#sobre" class="nav-link">Quem somos</a>
-                </li>      
-                <li class="nav-item ml-3">
-                  <a href="#contato" class="nav-link">Contato</a>
-                </li>
-                <li class="nav-item ml-3">
-                  <a href="{% url 'login' %}" class="nav-link">Login/Cadastro</a>
-                </li>
-              </ul> 
-            </div>   
-          </div>
-          
-        </nav>
-      </header>      
+<header> 
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top transparent-navbar">
+    <a href="{% url 'index' %}"><img src="#" alt="Logo" width="280"></a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Toggle navigation"></button>
+
+    <div class="collapse navbar-collapse" id="nav-principal">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item ml-3">
+          <a href="#home" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item ml-3">
+          <a href="#sobre" class="nav-link">Quem somos</a>
+        </li>      
+        <li class="nav-item ml-3">
+          <a href="#contato" class="nav-link">Contato</a>
+        </li>
+        <li class="nav-item ml-3">
+          <a href="{% url 'cadastro' %}" class="nav-link">Cadaste-se</a>
+        </li>
+        <li class="nav-item ml-3">
+          <Button class="btn btn-nav"><a href="{% url 'login' %}" class="nav-link">Login</a></Button>
+        </li>
+      </ul> 
+    </div>
+  </nav>
+</header>
+
+<div class="col-md-12 gx-0">
+  <img src="../static/img/teste.jpg" width="100%" height="80%">
+</div>
+
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+  <h1>teste</h1>
+
+
+
+<!-- 
+    
+<section id="introducao">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="../static/img/teste.jpg">
+      </div>
+      <div class="col-md-6" id="mensagem">
+        <h2>Transforme sua embalagem reciclavel em um gesto de sustentabilidade: uma troca que alimenta o planeta e o futuro!</h2>
+        <p>Contribua agora mesmo</p>
+      </div>
+    </div>
+
+    
+    <div class="row" id="cards">
+      <h3>Veja como é simples</h3>
+      <div class="col-md-3">
+        <img src="./img/pesquisar_medico.svg">
+        <h5>Faça sua busca</h5>
+        <p>Na barra de pesquisa selecione a especialidade ou localidade. Agora é só clicar no botão buscar.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="./img/selecionar_medico.svg">
+        <h5>Escolha o profissional</h5>
+        <p>Você verá uma lista de profissionais e poderá analisar até fazer a sua escolha.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="./img/calendario.svg">
+        <h5>Agende com tranquilidade</h5>
+        <p>Digite seu usuário e senha, ou caso seja novo, realize seu cadastro, é bem simples e rápido. Logo após finalize agendamento.</p>
+      </div>
+      <div class="col-md-3">
+        <img src="./img/notificacao.svg">
+        <h5>Aguarde a confirmação</h5>
+        <p>Em alguns instantes você receberá a confirmação do agendamento.</p>
+      </div>
+    </div>
+  </div>
+</section>-->
+
+<!-- navbar transparente  -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var navbar = document.querySelector('.navbar');
+
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 500) { 
+          navbar.classList.add('solid-navbar');
+      } else {
+          navbar.classList.remove('solid-navbar');
+      }
+  });
+});
+</script>
+
+<script src="path/to/jquery.js"></script>
+<script src="path/to/bootstrap.js"></script>
+<script src="path/to/your-custom.js"></script>
 
 </body>
 </html>
