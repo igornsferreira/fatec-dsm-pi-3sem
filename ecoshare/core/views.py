@@ -1,8 +1,7 @@
 from django.views import View
 from django.shortcuts import render, redirect
-from .models import Usuario, Endereco, Doacao
+from .models import Usuario
 from bson import ObjectId
-
 
 class IndexView(View):
     def get(self, request):
@@ -36,12 +35,12 @@ class CadastroView(View):
         )
         usuario.save()
 
-        return redirect('index.html')
-
+        return redirect('login')
+    
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
-
+        
 class HomeClienteView(View):
     def get(self, request):
         return render(request, 'homeCliente.html')
@@ -61,4 +60,3 @@ class BrindesClienteView(View):
 class PerfilClienteView(View):
     def get(self, request):
         return render(request, 'perfilCliente.html')
-
