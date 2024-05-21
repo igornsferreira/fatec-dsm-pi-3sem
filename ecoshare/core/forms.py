@@ -15,11 +15,11 @@ class DoacaoForm(forms.ModelForm):
 class UsuarioForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ['nome_completo', 'cpf', 'email', 'senha', 'telefone', 'data_nascimento', 'endereco', 'doacoes']
+        fields = ['username', 'cpf', 'email', 'senha', 'telefone', 'data_nascimento', 'endereco', 'doacoes']
 
-    def clean_nome_completo(self):
-        nome_completo = self.cleaned_data['nome_completo']
-        return nome_completo.upper().strip()
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        return username.upper().strip()
 
     def clean_cpf(self):
         cpf = self.cleaned_data['cpf']
@@ -52,4 +52,4 @@ class UsuarioForm(forms.ModelForm):
     
     def clean_doacoes(self):
         doacoes = self.cleaned_data['doacoes']
-        return doacoes    
+        return doacoes
