@@ -20,21 +20,26 @@
  
 <body>
 
-<!-- sidebar -->
-<div class="sidebar">
-    <a href="{% url 'homeCliente' %}"><img src="#" alt="Logo" width="280"></a>
-    <hr>
-    <a class="active" href="{% url 'homeCliente' %}"><i class="bi bi-house-door-fill"></i> Home</a>
-    <a href="{% url 'doacoesCliente' %}"><i class="bi bi-cart-check"></i> Nova doação</a>
-    <a href="{% url 'brindesCliente' %}"><i class="bi bi-gift"></i> Brindes disponíveis</a>
-    <a href="{% url 'relatorioCliente' %}"><i class="bi bi-bar-chart-line"></i> Minhas doações</a>
-    <a href="{% url 'perfilCliente' %}"><i class="bi bi-person-fill"></i> Perfil</a>
-    <hr>
-    <a href="{% url 'index' %}"><i class="bi bi-door-open"></i> Sair</a>
-</div>
+    <!-- sidebar -->
+    <div class="sidebar">
+        <a href="{% url 'homeCliente' %}"><img src="#" alt="Logo" width="280"></a>
+        <hr>
+        <a class="active" href="{% url 'homeCliente' %}"><i class="bi bi-house-door-fill"></i> Home</a>
+        <a href="{% url 'doacoesCliente' %}"><i class="bi bi-cart-check"></i> Nova doação</a>
+        <a href="{% url 'brindesCliente' %}"><i class="bi bi-gift"></i> Brindes disponíveis</a>
+        <a href="{% url 'relatorioCliente' %}"><i class="bi bi-bar-chart-line"></i> Minhas doações</a>
+        <a href="{% url 'perfilCliente' %}"><i class="bi bi-person-fill"></i> Perfil</a>
+        <hr>
+        <a href="{% url 'index' %}"><i class="bi bi-door-open"></i> Sair</a>
+    </div>
   
-
-
+    {% comment %} {% if user.is_authenticated %}
+        <p>Olá, {{ user.username }}</p>
+        <a href="{% url 'logout' %}">Sair</a>
+    {% else %}
+        <a href="{% url 'cadastro' %}">Cadastrar</a>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %} {% endcomment %}
 
 </body>
  
