@@ -40,7 +40,7 @@ class CadastroView(View):
         }
 
         usuario = Usuario(
-            user=user,
+            nome_completo=user,
             cpf=request.POST['cpf'],
             email=request.POST['email'],
             senha=request.POST['senha'],

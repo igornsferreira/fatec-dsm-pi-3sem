@@ -21,7 +21,7 @@ class Doacao(models.Model):
     validacao = models.BooleanField(default=False)
 
 class Usuario(models.Model):
-    username = models.CharField(max_length=100)
+    nome_completo = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, validators=[validators.RegexValidator(regex='^\d{3}\.\d{3}\.\d{3}-\d{2}$')])
     email = models.EmailField(unique=True)
     senha = models.CharField(max_length=100)
