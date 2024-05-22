@@ -73,7 +73,7 @@ class LoginView(View):
 def logout_view(request):
     """Faz logout do usuário."""
     logout(request)
-    return HttpResponseRedirect(reverse('index')
+    return HttpResponseRedirect(reverse('index'))
         
 class HomeClienteView(View):
     def get(self, request):
