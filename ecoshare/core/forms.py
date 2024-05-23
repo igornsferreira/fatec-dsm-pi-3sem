@@ -61,10 +61,6 @@ class UsuarioForm(UserCreationForm):
             return telefone
         raise ValidationError('Insira um telefone válido no formato (99) 99999-9999 ou (99) 9999-9999.')
 
-    def clean_data_nascimento(self):
-        data_nascimento = self.cleaned_data['data_nascimento']
-        return data_nascimento
-
     def clean_endereco(self):
         endereco = self.cleaned_data['endereco']
         return endereco
