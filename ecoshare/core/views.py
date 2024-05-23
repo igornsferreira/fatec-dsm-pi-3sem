@@ -8,7 +8,6 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.http.response import HttpResponse
 from django.urls import reverse
-from django.forms.widgets import DateInput
 
 class IndexView(View):
     def get(self, request):
@@ -19,15 +18,23 @@ class CadastroView(View):
         return render(request, 'cadastro.html')
     
     def post(self, request):
-        username = request.POST.get('username')
+        # Obtenha os dados do formulário
+        nome_completo = request.POST.get('nome_completo')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        if User.objects.filter(username=username).exists():
+        # Verifique se já existe um usuário com o mesmo nome
+        if User.objects.filter(username=nome_completo).exists():
             return HttpResponse('Já existe um usuário com este nome.')
 
-        user = User.objects.create_user(username=username, email=email, password=senha)
+        # Crie o usuário
+        user = User.objects.create_user(username=nome_completo, email=email, password=senha)
         user.save()
+        
+        # Divida o nome completo em partes (primeiro nome e sobrenome)
+        # partes_nome = nome_completo.split()
+        # primeiro_nome = partes_nome[0]
+        # sobrenome = partes_nome[-1]
         
         endereco_dict = {
             "_id": str(ObjectId()),
@@ -42,6 +49,8 @@ class CadastroView(View):
 
         usuario = Usuario(
             nome_completo=user,
+            # primeiro_nome=primeiro_nome,
+            # sobrenome=sobrenome,
             cpf=request.POST['cpf'],
             email=request.POST['email'],
             senha=request.POST['senha'],
@@ -52,25 +61,25 @@ class CadastroView(View):
         )
         usuario.save()
         
-        return HttpResponseRedirect(reverse('index.html'))
+        return HttpResponseRedirect(reverse('index'))
     
 class LoginView(View):
     def get(self, request):
         return render(request, 'login.html')
 
     def post(self, request):
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        user = authenticate(request, username=username, password=senha)
+        user = authenticate(email=email, password=senha)
 
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(reverse('index'))
+            return HttpResponseRedirect(reverse('homeCliente'))
         else:
             return HttpResponse('Usuário ou senha inválidos.')
-        
-def logout_view(request):
+
+def LogoutView(request):
     """Faz logout do usuário."""
     logout(request)
     return HttpResponseRedirect(reverse('index'))
@@ -94,3 +103,4 @@ class BrindesClienteView(View):
 class PerfilClienteView(View):
     def get(self, request):
         return render(request, 'perfilCliente.html')
+    

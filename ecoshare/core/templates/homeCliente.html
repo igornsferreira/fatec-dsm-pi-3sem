@@ -35,7 +35,6 @@
   
     {% comment %} {% if user.is_authenticated %}
         <p>Olá, {{ user.username }}</p>
-        <a href="{% url 'logout' %}">Sair</a>
     {% else %}
         <a href="{% url 'cadastro' %}">Cadastrar</a>
         <a href="{% url 'login' %}">Login</a>
