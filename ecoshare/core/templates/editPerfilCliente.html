@@ -38,41 +38,41 @@
     <div class="card">
         <form action="" method="post">
             {% csrf_token %}
-            <h5>Meu perfil</h5>
+            <h5>Editar perfil</h5>
             <input type="hidden" name="action" value="alterar">
             <div class="row" id="itens">
                 <div class="col-sm-6"> 
                     <label for="nome">Nome</label>                   
-                    <input class="form-control mb-2" type="text" value="{{ usuario.nome_completo }}" disabled>                    
+                    <input class="form-control mb-2" type="text" value="{{ usuario.nome_completo }}" required>                    
                     <label for="telefone">Telefone</label>                     
-                    <input class="form-control mb-2" type="number" value="{{ usuario.telefone }}" disabled>                      
+                    <input class="form-control mb-2" type="number" value="{{ usuario.telefone }}" required>                      
                     <label for="email">E-mail</label> 
-                    <input class="form-control mb-2" type="text" value="{{ usuario.email }}" disabled>                  
+                    <input class="form-control mb-2" type="text" value="{{ usuario.email }}" required>                  
                     <label for="cep">CEP</label> 
-                    <input class="form-control mb-2" type="number" value="{{ usuario.endereco.cep }}" disabled>                     
+                    <input class="form-control mb-2" type="number" value="{{ usuario.endereco.cep }}" required>                     
                     <label for="numero">Número</label>                        
-                    <input class="form-control mb-2" type="number" value="{{ usuario.endereco.numero }}" disabled>                     
+                    <input class="form-control mb-2" type="number" value="{{ usuario.endereco.numero }}" required>                     
                     <label for="cidade">Cidade</label> 
-                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.cidade }}" disabled>                     
+                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.cidade }}" required>                     
                     <label for="pais">País</label> 
-                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.pais }}" disabled>                      
+                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.pais }}" required>                      
                 </div>
                 <div class="col-sm-6">                    
                     <label for="cpf">CPF</label>                        
-                    <input class="form-control mb-2" type="number" value="{{ usuario.cpf }}" disabled>                    
+                    <input class="form-control mb-2" type="number" value="{{ usuario.cpf }}" required>                    
                     <label for="data_nascimento">Data de nascimento</label> 
-                    <input class="form-control mb-2" type="date" value="{{ usuario.data_nascimento }}" disabled>  
+                    <input class="form-control mb-2" type="date" value="{{ usuario.data_nascimento }}" required>  
                     <label for="senha">Senha</label> 
-                    <input class="form-control mb-3" type="password" value="{{ usuario.senha }}" disabled>               
+                    <input class="form-control mb-3" type="password" value="{{ usuario.senha }}" required>               
                     <label for="rua">Rua</label>                     
-                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.rua }}" disabled>                     
+                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.rua }}" required>                     
                     <label for="bairro">Bairro</label> 
-                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.bairro }}" disabled>                       
+                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.bairro }}" required>                       
                     <label for="estado">Estado</label>                 
-                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.estado }}" disabled>                     
+                    <input class="form-control mb-2" type="text" value="{{ usuario.endereco.estado }}" required>                     
                 </div>
                 <div class="col-sm-12">
-                    <a href="{% url 'editPerfilCliente' %}" class="btn btn-custom mt-3">Editar</a>
+                    <button type="submit" class="btn btn-custom mt-3">Salvar</button>
                 </div>
             </div>
         </form>

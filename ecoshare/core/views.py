@@ -4,6 +4,10 @@ from .models import UsuarioModel
 from bson import ObjectId
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+# teste
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import TemplateView
+#
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.http.response import HttpResponse
@@ -44,7 +48,7 @@ class CadastroView(View):
         }
 
         usuario = UsuarioModel(
-            nome_completo=user,
+            nome_completo=request.POST['nome_completo'],
             cpf=request.POST['cpf'],
             email=request.POST['email'],
             senha=request.POST['senha'],
@@ -55,7 +59,7 @@ class CadastroView(View):
         )
         usuario.save()
         
-        return HttpResponseRedirect(reverse('index'))
+        return HttpResponseRedirect(reverse('login'))
     
 class LoginView(View):
     def get(self, request):
@@ -94,6 +98,19 @@ class BrindesClienteView(View):
     def get(self, request):
         return render(request, 'brindesCliente.html')
 
-class PerfilClienteView(View):
-    def get(self, request):
-        return render(request, 'perfilCliente.html')
+#teste 
+class PerfilClienteView(LoginRequiredMixin, TemplateView):
+    template_name = 'perfilCliente.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['usuario'] = self.request.user
+        return context
+    
+class EditPerfilClienteView(LoginRequiredMixin, TemplateView):
+    template_name = 'editPerfilCliente.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['usuario'] = self.request.user
+        return context
