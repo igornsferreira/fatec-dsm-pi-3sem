@@ -1,1 +1,13 @@
-"*.pyc" 
+# Ignorar arquivos de byte compilados e arquivos de cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar arquivos de compilação Python
+*.py[cod]
+*$py.class
+
+# Ignorar arquivos gerados pelo Django
+*.pot
+*.so
