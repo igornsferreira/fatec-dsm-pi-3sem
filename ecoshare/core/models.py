@@ -2,7 +2,7 @@ from django.db import models
 from django.core import validators
 from djongo import models as djongo_models
 
-class Endereco(models.Model):
+class EnderecoModel(models.Model):
     _id = djongo_models.ObjectIdField()
     cep = models.CharField(max_length=9, validators=[validators.RegexValidator(regex='^\\d{5}-\\d{3}$')])
     rua = models.CharField(max_length=100)
@@ -16,34 +16,48 @@ class Endereco(models.Model):
         """Devolve uma representação em string do modelo."""
         return self._id
 
-class Doacao(models.Model):
+    class Meta:
+        verbose_name = 'Endereco'
+        verbose_name_plural = 'Enderecos'
+
+class DoacaoModel(models.Model):
     _id = djongo_models.ObjectIdField()
     material_doado = models.CharField(max_length=50)
     peso = models.IntegerField(validators=[validators.MinValueValidator(1)])
-    data = models.DateTimeField()
+    dia = models.IntegerField('Data')
+    mes = models.IntegerField('Mês')
+    modificado_em = models.DateTimeField(
+        verbose_name='Modificado em',
+        auto_now_add=False,
+        auto_now=True
+    )
     item_recebido = models.CharField(max_length=50)
     validacao = models.BooleanField(default=False)
     
-    class Meta:
-        verbose_name_plural = 'doacoes' # Para quando forem realizadas diversas doações
-
     def __str__(self):
         """Devolve uma representação em string do modelo."""
         return self.material_doado
 
-class Usuario(models.Model):
+    class Meta:
+        verbose_name = 'Doacao'
+        verbose_name_plural = 'Doacoes' # Para quando forem realizadas diversas doações
+        ordering = ('mes','-dia')
+
+class UsuarioModel(models.Model):
     nome_completo = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, validators=[validators.RegexValidator(regex='^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$')])
     email = models.EmailField(unique=True)
     senha = models.CharField(max_length=100)
     telefone = models.CharField(max_length=15, validators=[validators.RegexValidator(regex='^\\(\\d{2}\\) \\d{4,5}-\\d{4}$')])
     data_nascimento = models.DateField()
-    endereco = djongo_models.EmbeddedField(model_container=Endereco)
-    doacoes = djongo_models.ArrayField(model_container=Doacao)
+    endereco = djongo_models.EmbeddedField(model_container=EnderecoModel)
+    doacoes = djongo_models.ArrayField(model_container=DoacaoModel)
 
     def __str__(self):
         """Devolve uma representação em string do modelo."""
         return self.nome_completo
 
     class Meta:
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
         db_table = 'ecoshare'  # Define o nome da coleção no MongoDB
