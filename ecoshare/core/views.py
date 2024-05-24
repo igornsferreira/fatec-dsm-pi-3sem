@@ -1,6 +1,6 @@
 from django.views import View
 from django.shortcuts import render, redirect
-from .models import Usuario
+from .models import UsuarioModel  
 from bson import ObjectId
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
@@ -30,12 +30,7 @@ class CadastroView(View):
         # Crie o usuário
         user = User.objects.create_user(username=nome_completo, email=email, password=senha)
         user.save()
-        
-        # Divida o nome completo em partes (primeiro nome e sobrenome)
-        # partes_nome = nome_completo.split()
-        # primeiro_nome = partes_nome[0]
-        # sobrenome = partes_nome[-1]
-        
+
         endereco_dict = {
             "_id": str(ObjectId()),
             "cep": request.POST['cep'],
@@ -47,10 +42,8 @@ class CadastroView(View):
             "pais": request.POST['pais']
         }
 
-        usuario = Usuario(
+        usuario = UsuarioModel(
             nome_completo=user,
-            # primeiro_nome=primeiro_nome,
-            # sobrenome=sobrenome,
             cpf=request.POST['cpf'],
             email=request.POST['email'],
             senha=request.POST['senha'],
@@ -103,4 +96,3 @@ class BrindesClienteView(View):
 class PerfilClienteView(View):
     def get(self, request):
         return render(request, 'perfilCliente.html')
-    
