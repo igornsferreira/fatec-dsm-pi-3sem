@@ -24,11 +24,12 @@ class CadastroView(View):
         senha = request.POST.get('senha')
 
         # Verifique se já existe um usuário com o mesmo nome
-        if User.objects.filter(username=nome_completo).exists():
-            return HttpResponse('Já existe um usuário com este nome.')
+        if User.objects.filter(username=email).exists():
+            return HttpResponse('Já existe um usuário com este email.')
 
         # Crie o usuário
-        user = User.objects.create_user(username=nome_completo, email=email, password=senha)
+        user = User.objects.create_user(username=email, email=email)
+        user.set_password(senha)
         user.save()
 
         endereco_dict = {
@@ -63,8 +64,8 @@ class LoginView(View):
     def post(self, request):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
-
-        user = authenticate(email=email, password=senha)
+        
+        user = authenticate(username=email, password=senha)
 
         if user is not None:
             login(request, user)
