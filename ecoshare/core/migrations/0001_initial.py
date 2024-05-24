@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Doacao',
+            name='DoacaoModel',
             fields=[
                 ('_id', djongo.models.fields.ObjectIdField(auto_created=True, primary_key=True, serialize=False)),
                 ('material_doado', models.CharField(max_length=50)),
@@ -24,7 +24,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Endereco',
+            name='EnderecoModel',
             fields=[
                 ('_id', djongo.models.fields.ObjectIdField(auto_created=True, primary_key=True, serialize=False)),
                 ('cep', models.CharField(max_length=9, validators=[django.core.validators.RegexValidator(regex='^\\d{5}-\\d{3}$')])),
@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Usuario',
+            name='UsuarioModel',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nome_completo', models.CharField(max_length=100)),
@@ -46,8 +46,8 @@ class Migration(migrations.Migration):
                 ('senha', models.CharField(max_length=100)),
                 ('telefone', models.CharField(max_length=15, validators=[django.core.validators.RegexValidator(regex='^\\(\\d{2}\\) \\d{4,5}-\\d{4}$')])),
                 ('data_nascimento', models.DateField()),
-                ('endereco', djongo.models.fields.EmbeddedField(model_container=core.models.Endereco)),
-                ('doacoes', djongo.models.fields.ArrayField(model_container=core.models.Doacao)),
+                ('EnderecoModel', djongo.models.fields.EmbeddedField(model_container=core.models.EnderecoModel)),
+                ('doacoes', djongo.models.fields.ArrayField(model_container=core.models.DoacaoModel)),
             ],
             options={
                 'db_table': 'ecoshare',
