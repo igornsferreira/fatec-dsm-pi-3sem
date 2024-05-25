@@ -28,11 +28,11 @@ class CadastroView(View):
         email = request.POST.get('email')
         senha = request.POST.get('senha')
 
-        # Verifique se já existe um usuário com o mesmo nome
+        # Verifique se já existe um usuário com o mesmo e-mail
         if User.objects.filter(username=email).exists():
            return HttpResponse('Já existe um usuário com este email.')
 
-        # Crie o usuário
+        # Cria o usuário
         user = User.objects.create_user(username=email, email=email)
         user.set_password(senha)
         user.save()
