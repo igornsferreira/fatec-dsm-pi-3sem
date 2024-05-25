@@ -1,6 +1,8 @@
 from django.db import models
 from django.core import validators
 from djongo import models as djongo_models
+from django.contrib.auth.models import User
+
 
 class EnderecoModel(models.Model):
     _id = djongo_models.ObjectIdField()
@@ -24,13 +26,7 @@ class DoacaoModel(models.Model):
     _id = djongo_models.ObjectIdField()
     material_doado = models.CharField(max_length=50)
     peso = models.IntegerField(validators=[validators.MinValueValidator(1)])
-    dia = models.IntegerField('Data')
-    mes = models.IntegerField('Mês')
-    modificado_em = models.DateTimeField(
-        verbose_name='Modificado em',
-        auto_now_add=False,
-        auto_now=True
-    )
+    data = models.DateField()
     item_recebido = models.CharField(max_length=50)
     validacao = models.BooleanField(default=False)
     
@@ -41,9 +37,9 @@ class DoacaoModel(models.Model):
     class Meta:
         verbose_name = 'Doacao'
         verbose_name_plural = 'Doacoes' # Para quando forem realizadas diversas doações
-        ordering = ('mes','-dia')
 
 class UsuarioModel(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     nome_completo = models.CharField(max_length=100)
     cpf = models.CharField(max_length=14, validators=[validators.RegexValidator(regex='^\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}$')])
     email = models.EmailField(unique=True)
