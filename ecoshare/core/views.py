@@ -12,6 +12,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.http.response import HttpResponse
 from django.urls import reverse
+from django.shortcuts import get_object_or_404
 
 class IndexView(View):
     def get(self, request):
@@ -29,7 +30,7 @@ class CadastroView(View):
 
         # Verifique se já existe um usuário com o mesmo nome
         if User.objects.filter(username=email).exists():
-            return HttpResponse('Já existe um usuário com este email.')
+           return HttpResponse('Já existe um usuário com este email.')
 
         # Crie o usuário
         user = User.objects.create_user(username=email, email=email)
@@ -48,6 +49,7 @@ class CadastroView(View):
         }
 
         usuario = UsuarioModel(
+            user=user,
             nome_completo=request.POST['nome_completo'],
             cpf=request.POST['cpf'],
             email=request.POST['email'],
@@ -104,7 +106,8 @@ class PerfilClienteView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['usuario'] = self.request.user
+        usuario = get_object_or_404(UsuarioModel, user=self.request.user)
+        context['usuario'] = usuario
         return context
     
 class EditPerfilClienteView(LoginRequiredMixin, TemplateView):
