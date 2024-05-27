@@ -4,10 +4,8 @@ from .models import UsuarioModel
 from bson import ObjectId
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-# teste
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
-#
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
 from django.http.response import HttpResponse
@@ -100,7 +98,6 @@ class BrindesClienteView(View):
     def get(self, request):
         return render(request, 'brindesCliente.html')
 
-#teste 
 class PerfilClienteView(LoginRequiredMixin, TemplateView):
     template_name = 'perfilCliente.html'
 
@@ -115,5 +112,6 @@ class EditPerfilClienteView(LoginRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['usuario'] = self.request.user
+        usuario = get_object_or_404(UsuarioModel, user=self.request.user)
+        context['usuario'] = usuario
         return context

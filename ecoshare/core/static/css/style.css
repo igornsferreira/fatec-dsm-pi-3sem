@@ -8,18 +8,36 @@
 
 /* Navbar com fundo sólido */
 .solid-navbar {
-  background-color: #f2ecddff; 
+  background-color: #ffffff; 
+  box-shadow: 0px 0px 5px grey;
+
 }
 
-.transparent-navbar .btn-nav {
-  color: #ffffffff !important;
-  position: relative;
-  background-color: #ebb51dff !important;
-  border-radius: 35px;
-  width: 100px;
-  height: 45px;
+ul li {
+  margin: 7px;
+  padding: 13px;
 }
 
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item button {
+  border: none;
+  border-radius: 7px;
+  background-color: rgb(254, 206, 13);
+  float: right;
+}
+
+.nav-item button:hover {
+  box-shadow: 0px 0px 5px #ebb51dff;
+}
+
+.nav-item button a.nav-link:hover {
+  color: white !important;
+  text-decoration: none;
+}
 
 /*** LOGIN E CADASTRO ***/ 
 
@@ -55,7 +73,7 @@ nav {
 #left {
     height: 100vh;
     width: 100%;
-    background-image: url(https://img.freepik.com/fotos-gratis/folhas-de-palmeira-tropical-padrao-de-fundo-projeto-de-decoracao-de-folhagem-de-arvore-monstera-verde-planta-com-folha-exotica-fechada_90220-1135.jpg);
+    background-image: url(../img/EcoShare-Login\ \(1\).png);
     background-size: cover; 
 }
 
@@ -94,14 +112,14 @@ input.form-control:focus {
 
 .btn-custom  {
   color: #ffffffff !important;
-  background-color: #50be50ff !important;
+  background-color: #04723cff !important;
   height: 45px;
   width: 100px;
 }
 
 .btn-custom:hover {
   color: #ffffffff !important;
-  background-color: #04723cff !important;
+  background-color: #50be50ff !important;
   box-shadow: 2px 2px 4px grey !important;
   height: 45px;
 }
