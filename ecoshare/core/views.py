@@ -1,3 +1,4 @@
+from pyexpat.errors import messages
 from django.views import View
 from django.shortcuts import render, redirect
 from .models import UsuarioModel  
@@ -13,12 +14,16 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404
 
 class IndexView(View):
+    template_name = 'index.html'
+    
     def get(self, request):
-        return render(request, 'index.html')
+        return render(request, self.template_name)
     
 class CadastroView(View):
+    template_name = 'cadastro.html'
+    
     def get(self, request):
-        return render(request, 'cadastro.html')
+        return render(request, self.template_name)
     
     def post(self, request):
         # Obtenha os dados do formulário
@@ -62,8 +67,10 @@ class CadastroView(View):
         return HttpResponseRedirect(reverse('login'))
     
 class LoginView(View):
+    template_name = 'login.html'
+    
     def get(self, request):
-        return render(request, 'login.html')
+        return render(request, self.template_name)
 
     def post(self, request):
         email = request.POST.get('email')
@@ -77,26 +84,34 @@ class LoginView(View):
         else:
             return HttpResponse('Usuário ou senha inválidos.')
 
-def LogoutView(request):
+class LogoutView(View):
     """Faz logout do usuário."""
-    logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    def get(self, request):
+        messages.sucess(request, 'Logout Realizado!')
+        logout(request)
+        return redirect('index')
         
 class HomeClienteView(View):
+    template_name = 'homeCliente.html'
+
     def get(self, request):
-        return render(request, 'homeCliente.html')
+        return render(request, self.template_name)
 
 class RelatorioClienteView(View):
+    template_name = 'relatorioCliente.html'
+
     def get(self, request):
-        return render(request, 'relatorioCliente.html')
+        return render(request, self.template_name)
 
 class DoacoesClienteView(View):
     def get(self, request):
         return render(request, 'doacoesCliente.html')
 
 class BrindesClienteView(View):
+    template_name = 'brindesCliente.html'
+
     def get(self, request):
-        return render(request, 'brindesCliente.html')
+        return render(request, self.template_name)
 
 class PerfilClienteView(LoginRequiredMixin, TemplateView):
     template_name = 'perfilCliente.html'
