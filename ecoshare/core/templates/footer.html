@@ -1,0 +1,16 @@
+{% load static %}
+
+<!-- navbar transparente  -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var navbar = document.querySelector('.navbar');
+    
+      window.addEventListener('scroll', function() {
+          if (window.scrollY > 700) { 
+              navbar.classList.add('solid-navbar');
+          } else {
+              navbar.classList.remove('solid-navbar');
+          }
+      });
+    });
+</script>
