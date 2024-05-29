@@ -40,29 +40,42 @@
                     {% csrf_token %}
                     <input type="hidden" name="action" value="cadastrar">
                     <div class="row">
-                        <div class="col-sm-12">                    
-                            <input class="form-control mb-2" type="text" name="nome_completo" placeholder="Nome" required>
+                        <div class="col-sm-12">
+                            <label for="nome">Nome</label>                    
+                            <input class="form-control mb-3" type="text" name="nome_completo" required>
                         </div>
-                        <div class="col-sm-6">                        
-                            <input class="form-control mb-2" type="number" name="cpf" placeholder="CPF" required>
-                            <input class="form-control mb-2" type="date" name="data_nascimento" value="31-03-2020" placeholder="Data de Nascimento" required="" id="id_data">
-                            <input class="form-control mb-2" type="text" name="rua" id="rua" placeholder="Rua" required> 
-                            <input class="form-control mb-2" type="text" name="bairro" id="bairro" placeholder="Bairro" required>                    
-                            <input class="form-control mb-2" type="text" name="estado" id="estado" placeholder="Estado" required>                    
+                        <div class="col-sm-6"> 
+                            <label for="cpf">CPF</label>                        
+                            <input class="form-control mb-3" type="number" name="cpf" required>
+                            <label for="data_nascimento">Data de nascimento</label> 
+                            <input class="form-control mb-3" type="date" name="data_nascimento" value="31-03-2020" placeholder="Data de Nascimento" required="" id="id_data">
+                            <label for="rua">Rua</label>     
+                            <input class="form-control mb-3" type="text" name="rua" id="rua" required> 
+                            <label for="bairro">Bairro</label> 
+                            <input class="form-control mb-3" type="text" name="bairro" id="bairro" required> 
+                            <label for="estado">Estado</label>                   
+                            <input class="form-control mb-3" type="text" name="estado" id="estado" required>                    
                         </div>
                         <div class="col-sm-6">
-                            <input class="form-control mb-2" type="number" name="telefone" placeholder="Telefone" required>
-                            <input class="form-control mb-2" type="text" name="cep" id="cep" placeholder="CEP" required>                        
-                            <input class="form-control mb-2" type="number" name="numero" placeholder="Número" required>
-                            <input class="form-control mb-2" type="text" name="cidade" id="cidade" placeholder="Cidade" required>   
-                            <input class="form-control mb-2" type="text" name="pais" placeholder="País" required>                     
+                            <label for="telefone">Telefone</label> 
+                            <input class="form-control mb-3" type="number" name="telefone" required>
+                            <label for="cep">CEP</label>  
+                            <input class="form-control mb-3" type="text" name="cep" id="cep" quired>  
+                            <label for="numero">Número</label>                       
+                            <input class="form-control mb-3" type="number" name="numero" required>
+                            <label for="cidade">Cidade</label> 
+                            <input class="form-control mb-3" type="text" name="cidade" id="cidade" required>   
+                            <label for="pais">País</label>
+                            <input class="form-control mb-3" type="text" name="pais" required>                     
                         </div>
                         <div class="col-sm-12">
-                            <input class="form-control mb-2" type="text" name="email" placeholder="E-mail" required>
-                            <input class="form-control mb-3" type="password" name="senha" placeholder="Senha" required>
+                            <label for="email">E-mail</label> 
+                            <input class="form-control mb-3" type="text" name="email" required>
+                            <label for="senha">Senha</label> 
+                            <input class="form-control mb-3" type="password" name="senha" required>
                         </div>
                         <div class="col-sm-12">
-                            <button type="submit" class="btn btn-custom mt-3">Cadastrar</button>
+                            <button type="submit" class="btn btn-custom mt-3 mb-5">Cadastrar</button>
                         </div>
                     </div>
                 </form>

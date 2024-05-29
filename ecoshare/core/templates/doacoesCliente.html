@@ -42,9 +42,9 @@
             <div class="row" id="itens">
                 <div class="col-sm-6"> 
                     <label for="nome">Data</label>                   
-                    <input class="form-control mb-2" type="date" name="nome" placeholder="Data da doação" required>       
+                    <input class="form-control mb-3" type="date" name="nome" placeholder="Data da doação" required>       
                     <label for="material">Material</label>
-                    <select class="form-control mb-2" name="material" id="material" required>
+                    <select class="form-control mb-3" name="material" id="material" required>
                         <option value="" disabled selected>Selecione</option>
                         <option value="garrafa_pet">Garrafa Pet</option>
                         <option value="detergente">Detergente</option>
@@ -52,7 +52,21 @@
                         <option value="shampoo">Shampoo</option>
                     </select>
                     <label for="peso">Peso</label> 
-                    <input class="form-control mb-5" type="number" name="peso" placeholder="" required>    
+                    <select class="form-control mb-3" name="peso" id="peso" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="2">2KG</option>
+                        <option value="3">3KG</option>
+                        <option value="4">4KG</option>
+                        <option value="5">5KG</option>
+                    </select>  
+                    <label for="brinde">Brinde selecionado para troca</label>
+                    <select class="form-control mb-5" name="brinde" id="brinde" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="arroz">Arroz</option>
+                        <option value="feijao">Feijão</option>
+                        <option value="macarrao">Macarrão</option>
+                        <option value="acucar">Açúcar</option>
+                    </select>  
                     <div class="col-sm-12 mb-3">
                         <input type="checkbox" class="" id="termos" name="termos">
                         <label for="termos" class="form-check-label"> Eu confirmo a doação dos materiais em bom estado</label>

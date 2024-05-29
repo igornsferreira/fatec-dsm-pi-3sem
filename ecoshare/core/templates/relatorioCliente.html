@@ -34,8 +34,52 @@
 </div>
   
 
+<div id="relatorio" class="content">
+    <div class="card">
+        <form action="" method="post">
+            <h5>Minhas doações</h5>
+            <input type="hidden" name="action" value="relatorio">
+            <div class="row" id="itens">
+                <div class="col-sm-6"> 
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">Nº</th>
+                          <th scope="col">Data</th>
+                          <th scope="col">Material</th>
+                          <th scope="col">Peso</th>
+                          <th scope="col">Status</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>25/06/2024</td>
+                          <td>Garrafa pet</td>                            
+                          <td>2KG</td>
+                          <td>Pendente</td>
+                          <td><button type="submit" class="btn btn-custom">Retirar</button></td>
+                          <td><button type="submit" class="btn btn-cancel">Cancelar</button></td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>20/07/2024</td>
+                          <td>Detergente</td>                            
+                          <td>3KG</td>
+                          <td>Autorizado</td>
+                          <td><button type="submit" class="btn btn-custom">Retirar</button></td>
+                          <td><button type="submit" class="btn btn-cancel">Cancelar</button></td>
+                        </tr>
+                      </tbody>
+                    </table>   
+                </div>                
+            </div>
+        </form>
+    </div>
+</div>
   
-
 </body>
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

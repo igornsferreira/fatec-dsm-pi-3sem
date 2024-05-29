@@ -71,10 +71,10 @@ nav {
 /* body */
 
 #left {
-    height: 100vh;
-    width: 100%;
-    background-image: url(../img/EcoShare-Login\ \(1\).png);
-    background-size: cover; 
+  height: 100vh;
+  width: 100%;
+  background-image: url(../img/EcoShare-Login\ \(1\).png);
+  background-size: cover; 
 }
 
 #right {
@@ -84,13 +84,13 @@ nav {
 /* Formulario */
 
 #login form {
-  margin-top: 93px;
+  margin-top: 50px;
   width: 70%;
   height: 41px;
 }
 
 #cadastro form {
-  margin-top: 93px;
+  margin-top: 50px;
   height: 41px;
 }
 
@@ -112,24 +112,22 @@ input.form-control:focus {
 
 .btn-custom  {
   color: #ffffffff !important;
-  background-color: #04723cff !important;
+  background-color: #50be50ff !important;
   height: 45px;
   width: 100px;
 }
 
 .btn-custom:hover {
-  color: #ffffffff !important;
-  background-color: #50be50ff !important;
+  background-color: #04723cff !important;
   box-shadow: 2px 2px 4px grey !important;
-  height: 45px;
 }
 
 #login .password {
-  color: #ebb51dff;
+  color: rgb(240, 86, 10);
 }
 
 #login .password:hover {
-  color: #d75a1aff;
+  color: rgb(196, 75, 14);
 }
 
 
@@ -241,7 +239,36 @@ input.form-control:focus {
 }
 
 
+/** relatorio **/
 
+#relatorio .card form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#relatorio .card form h5 {
+  align-self: flex-start;
+}
+
+#relatorio table th,
+#relatorio table td {
+  padding: 20px;
+}
+
+
+.btn-cancel  {
+  color: #ffffffff !important;
+  background-color: rgb(216, 3, 3) !important;
+  height: 45px;
+  width: 100px;
+}
+
+.btn-cancel:hover {
+  background-color: rgb(165, 0, 0) !important;
+  box-shadow: 2px 2px 4px grey !important;
+}
   
   /* On screens that are less than 700px wide, make the sidebar into a topbar
   @media screen and (max-width: 700px) {
