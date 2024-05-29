@@ -130,10 +130,9 @@ input.form-control:focus {
   color: rgb(196, 75, 14);
 }
 
+/** PORTAL DO CLIENTE ***/
 
-
-
-/*** SIDEBAR ***/
+/**  sidebar **/
 .sidebar {
     margin: 0;
     padding-top: 7px;
@@ -221,7 +220,7 @@ input.form-control:focus {
 }
 
 .card h5 {
-  display: inline;
+  display: inline !important;
   border-bottom: 2px solid #d75a1aff;
 }
 
@@ -238,8 +237,21 @@ input.form-control:focus {
   border-color: rgba(201, 197, 197, 0.541);
 }
 
+/*** BRINDES ***/ 
 
-/** relatorio **/
+.card .inner-card {
+  padding: 0;
+  margin: 40px;
+}
+
+#brindes .inner-card {
+  box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.753);
+
+}
+
+
+
+/*** RELATORIOS  ***/
 
 #relatorio .card form {
   display: flex;
