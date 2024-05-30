@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from core import views  
+from core import views
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -14,5 +14,5 @@ urlpatterns = [
     path('brindesCliente/', login_required(views.BrindesClienteView.as_view()), name='brindesCliente'),
     path('perfilCliente/', login_required(views.PerfilClienteView.as_view()), name='perfilCliente'),
     path('editPerfilCliente/', login_required(views.EditPerfilClienteView.as_view()), name='editPerfilCliente'),
-    path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('logout/', views.LogoutView, name='logout'),
 ]
