@@ -2,79 +2,85 @@
 
 /* Navbar transparente */
 .transparent-navbar {
-  background-color: rgba(255, 255, 255, 0); 
-  transition: background-color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0); 
+    transition: background-color 0.3s ease;
 }
 
 /* Navbar com fundo sólido */
 .solid-navbar {
-  background-color: #ffffff; 
-  box-shadow: 0px 0px 5px grey;
-
+    background-color: #ffffff; 
+    box-shadow: 0px 0px 5px grey;
 }
 
 ul li {
-  margin: 7px;
-  padding: 13px;
+    margin: 7px;
+    padding: 13px;
 }
 
 .navbar-nav {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .nav-item button {
-  border: none;
-  border-radius: 7px;
-  background-color: rgb(254, 206, 13);
-  float: right;
+    border: none;
+    border-radius: 7px;
+    background-color: rgb(254, 206, 13);
+    float: right;
 }
 
 .nav-item button:hover {
-  box-shadow: 0px 0px 5px #ebb51dff;
+    box-shadow: 0px 0px 5px #ebb51dff;
 }
 
 .nav-item button a.nav-link:hover {
-  color: white !important;
-  text-decoration: none;
+    color: white !important;
+    text-decoration: none;
 }
 
 /*** LOGIN E CADASTRO ***/ 
 
 /* navbar */
 
+.logo {
+    transition: all 0.2s;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
 nav {
-  background-color: white;
-  padding: 15px 0;
+    background-color: white;
+    padding: 15px 0;
 }
 
 .navbar-light .nav-toggler {
-  color: rgba (0, 0, 0, 0.5);
-  border-color: rgba (255, 255, 255, 0);
+    color: rgba (0, 0, 0, 0.5);
+    border-color: rgba (255, 255, 255, 0);
 }
 
 .navbar-nav .nav-item a.nav-link {
-  text-decoration: none; 
-  color: #04723cff;
-  font-weight: 600;
+    text-decoration: none; 
+    color: #04723cff;
+    font-weight: 600;
 }
 
 .navbar-nav .nav-item a.nav-link:hover {
-  color: #50be50ff;
+    color: #50be50ff;
 }
 
 .navbar-nav .nav-item a.nav-link.active {
-  border-bottom: 2px solid #d75a1aff; 
+    border-bottom: 2px solid #d75a1aff; 
 }
-
 
 /* body */
 
 #left {
-  height: 100vh;
-  width: 100%;
-  background-image: url(../img/EcoShare-Login\ \(1\).png);
-  background-size: cover; 
+    height: 100vh;
+    width: 100%;
+    background-image: url(../img/EcoShare-Login\ \(1\).png);
+    background-size: cover; 
 }
 
 #right {
@@ -84,50 +90,50 @@ nav {
 /* Formulario */
 
 #login form {
-  margin-top: 50px;
-  width: 70%;
-  height: 41px;
+    margin-top: 50px;
+    width: 70%;
+    height: 41px;
 }
 
 #cadastro form {
-  margin-top: 50px;
-  height: 41px;
+    margin-top: 50px;
+    height: 41px;
 }
 
 input.form-control {
-  border-color: rgba(201, 197, 197, 0.541); 
-  outline: none;
+    border-color: rgba(201, 197, 197, 0.541); 
+    outline: none;
 }
 
 input.form-control:focus {
-  outline: none;
-  box-shadow: 0px 0px 3px rgb(255, 245, 112);
-  border-color: rgba(201, 197, 197, 0.541); 
+    outline: none;
+    box-shadow: 0px 0px 3px rgb(255, 245, 112);
+    border-color: rgba(201, 197, 197, 0.541); 
 }
 
 .form-check-input:focus {
-  outline: 0;
-  box-shadow: 0px 0px 5px grey !important;
+    outline: 0;
+    box-shadow: 0px 0px 5px grey !important;
 }
 
 .btn-custom  {
-  color: #ffffffff !important;
-  background-color: #50be50ff !important;
-  height: 45px;
-  width: 100px;
+    color: #ffffffff !important;
+    background-color: #50be50ff !important;
+    height: 45px;
+    width: 100px;
 }
 
 .btn-custom:hover {
-  background-color: #04723cff !important;
-  box-shadow: 2px 2px 4px grey !important;
+    background-color: #04723cff !important;
+    box-shadow: 2px 2px 4px grey !important;
 }
 
 #login .password {
-  color: rgb(240, 86, 10);
+    color: rgb(240, 86, 10);
 }
 
 #login .password:hover {
-  color: rgb(196, 75, 14);
+    color: rgb(196, 75, 14);
 }
 
 /** PORTAL DO CLIENTE ***/
@@ -142,55 +148,55 @@ input.form-control:focus {
     position: fixed;
     height: 100%;
     overflow: auto;
-  }
+}
   
-  /* links */
-  .sidebar a {
+/* links */
+.sidebar a {
     display: block;
     color: #ffffffff;
     padding: 16px;
     text-decoration: none;
     font-weight: 600;
     font-size: 16px;
-  }
+}
   
-  /* link activate */
-  .sidebar a.active {
+/* link activate */
+.sidebar a.active {
     background-color: #ffffffff;
     color: #04723cff;
     border-top-left-radius: 30px; 
     border-bottom-left-radius: 30px;
     box-shadow: 2px 2px 15px gray;
-  }
+}
   
-  /* hover link */
-  .sidebar a:hover:not(.active) {
+/* hover link */
+.sidebar a:hover:not(.active) {
     background-color: #50be50ff;
     color: #ffffffff;
     border-top-left-radius: 30px; 
     border-bottom-left-radius: 30px; 
     box-shadow: 0px 0px 5px rgb(1, 207, 108);
-  }
+}
 
-  /* icones */ 
-  i {
+/* icones */ 
+i {
     color: #50be50ff;
-  }
+}
 
-  .sidebar a:hover:not(.active) i {
+.sidebar a:hover:not(.active) i {
     color: #ffffffff;;
-  }
+}
   
 /* Conteúdo */
 .content {
-  margin-left: 50px; 
-  padding: 20px; 
-  position: absolute; 
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 200px; 
-  overflow-y: auto; 
+    margin-left: 50px; 
+    padding: 20px; 
+    position: absolute; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 200px; 
+    overflow-y: auto; 
 }
 
 /*** PERFIL DO CLIENTE  ***/ 
@@ -198,88 +204,85 @@ input.form-control:focus {
 /* card */
 
 .card {
-  padding: 30px;
-  margin: 20px;
+    padding: 30px;
+    margin: 20px;
 }
 
 .card #itens{
-  padding: 20px;
+    padding: 20px;
 }
 
 #doacao .card #itens{
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .card #itens label{
-  margin: 6px;
+    margin: 6px;
 }
 
 .card .form-control {
-  width: 70%;
+    width: 70%;
 }
 
 .card h5 {
-  display: inline !important;
-  border-bottom: 2px solid #d75a1aff;
+    display: inline !important;
+    border-bottom: 2px solid #d75a1aff;
 }
 
 .card select.form-control {
-  border-color: rgba(201, 197, 197, 0.541); 
-  outline: none;
-  width: 70%;
+    border-color: rgba(201, 197, 197, 0.541); 
+    outline: none;
+    width: 70%;
 }
 
 .card select:focus {
-  width: 70%;
-  outline: none;
-  box-shadow: 0px 0px 3px rgb(255, 245, 112);
-  border-color: rgba(201, 197, 197, 0.541);
+    width: 70%;
+    outline: none;
+    box-shadow: 0px 0px 3px rgb(255, 245, 112);
+    border-color: rgba(201, 197, 197, 0.541);
 }
 
 /*** BRINDES ***/ 
 
 .card .inner-card {
-  padding: 0;
-  margin: 40px;
+    padding: 0;
+    margin: 40px;
 }
 
 #brindes .inner-card {
-  box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.753);
-
+    box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.753);
 }
-
-
 
 /*** RELATORIOS  ***/
 
 #relatorio .card form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #relatorio .card form h5 {
-  align-self: flex-start;
+    align-self: flex-start;
 }
 
 #relatorio table th,
 #relatorio table td {
-  padding: 20px;
+    padding: 20px;
 }
 
 
 .btn-cancel  {
-  color: #ffffffff !important;
-  background-color: rgb(216, 3, 3) !important;
-  height: 45px;
-  width: 100px;
+    color: #ffffffff !important;
+    background-color: rgb(216, 3, 3) !important;
+    height: 45px;
+    width: 100px;
 }
 
 .btn-cancel:hover {
-  background-color: rgb(165, 0, 0) !important;
-  box-shadow: 2px 2px 4px grey !important;
+    background-color: rgb(165, 0, 0) !important;
+    box-shadow: 2px 2px 4px grey !important;
 }
   
   /* On screens that are less than 700px wide, make the sidebar into a topbar
