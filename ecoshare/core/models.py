@@ -26,7 +26,7 @@ class DoacaoModel(models.Model):
     _id = djongo_models.ObjectIdField()
     material_doado = models.CharField(max_length=50)
     peso = models.IntegerField(validators=[validators.MinValueValidator(1)])
-    data = models.DateField()
+    data = models.DateTimeField(auto_now_add=True)
     item_recebido = models.CharField(max_length=50)
     validacao = models.BooleanField(default=False)
     
