@@ -31,7 +31,7 @@
                     </li>
                     {% if user.is_authenticated %}
                         <li class="nav-item ml-3">
-                            <p>Olá {{ user.nome_completo }}</p>
+                            <!-- <p>Olá {{ user.nome_completo }}</p> -->
                             <button><a href="{% url 'homeCliente' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Meu Perfil</a></button>
                             <button><a href="{% url 'logout' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Sair</a></button>
                         </li>

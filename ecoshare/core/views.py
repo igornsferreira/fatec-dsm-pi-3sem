@@ -64,7 +64,7 @@ class CadastroView(View):
         )
         usuario.save()
         
-        return HttpResponseRedirect(reverse('login'))
+        return HttpResponseRedirect(reverse('homeCliente'))
     
 class LoginView(View):
     template_name = 'login.html'
@@ -84,12 +84,10 @@ class LoginView(View):
         else:
             return HttpResponse('Usuário ou senha inválidos.')
 
-class LogoutView(View):
+def LogoutView(request):
     """Faz logout do usuário."""
-    def get(self, request):
-        messages.sucess(request, 'Logout Realizado!')
-        logout(request)
-        return redirect('index')
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
         
 class HomeClienteView(View):
     template_name = 'homeCliente.html'
