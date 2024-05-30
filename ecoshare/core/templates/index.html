@@ -5,67 +5,32 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Estilo customizado -->
-        <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
-        <!-- Bootstrap -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <!-- Bootstrap Icon -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-        <!-- ICONE -->
-        <link rel="icon" href="#">
         <!-- Título -->
         <title>EcoShare</title>
     </head>
-<body>
+<body class="vh-100 overflow-x-hidden">
 
-<header> 
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top transparent-navbar">
-    <div class="container">
-      <a href="{% url 'index' %}"><img src="../static/img/EcoShare preto.png" alt="Logo" width="120"></a>
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Toggle navigation"></button>
-
-      <div class="collapse navbar-collapse" id="nav-principal">
-        <ul class="navbar-nav mx-auto">
-          <li class="nav-item ml-3">
-            <a href="#home" class="nav-link">Início</a>
-          </li>
-          <li class="nav-item ml-3">
-            <a href="#sobre" class="nav-link">Quem somos</a>
-          </li>      
-          <li class="nav-item ml-3">
-            <a href="#contato" class="nav-link">Contato</a>
-          </li>
-          <li class="nav-item ml-3">
-            <button><a href="{% url 'login' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i> Entre | Cadaste-se</a></button>
-          </li>
-        </ul> 
-      </div>
-    </div>
-  </nav>
-</header>
+{% include "header.html" %}
 
 <div class="col-md-12 gx-0">
   <img src="../static/img/teste.jpg" width="100%" height="80%">
 </div>
 
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-  <h1>teste</h1>
-
-
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
+<h1>teste</h1>
 
 <!-- 
     
@@ -108,20 +73,7 @@
   </div>
 </section>-->
 
-<!-- navbar transparente  -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  var navbar = document.querySelector('.navbar');
-
-  window.addEventListener('scroll', function() {
-      if (window.scrollY > 700) { 
-          navbar.classList.add('solid-navbar');
-      } else {
-          navbar.classList.remove('solid-navbar');
-      }
-  });
-});
-</script>
+{% include "footer.html" %}
 
 <script src="path/to/jquery.js"></script>
 <script src="path/to/bootstrap.js"></script>

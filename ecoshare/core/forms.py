@@ -1,12 +1,23 @@
 from django import forms
 from django.core.exceptions import ValidationError
-from .models import Endereco, Doacao, Usuario
+from .models import EnderecoModel, DoacaoModel, UsuarioModel
 from django.contrib.auth.forms import UserCreationForm
 
 class EnderecoForm(forms.ModelForm):
     class Meta:
-        model = Endereco
+        model = EnderecoModel
         fields = ['cep', 'rua', 'bairro', 'numero', 'cidade', 'estado', 'pais']
+
+class DoacaoForm(forms.ModelForm):
+    class Meta:
+        model = DoacaoModel
+        fields = ['_id', 'material_doado', 'peso', 'data', 'item_recebido', 'validacao']
+        labels = {
+            'material_doado': 'Material Doado',
+            'peso': 'Peso',
+            'data': 'Data',
+            'item_recebido': 'Item Recebido',
+        }
 
 class UsuarioForm(UserCreationForm):
     data_nascimento = forms.DateField(
@@ -21,7 +32,7 @@ class UsuarioForm(UserCreationForm):
     )
 
     class Meta:
-        model = Usuario
+        model = UsuarioModel
         fields = ['nome_completo', 'cpf', 'email', 'telefone', 'data_nascimento', 'endereco', 'doacoes']
         labels = {
             'nome_completo': 'Nome Completo',
