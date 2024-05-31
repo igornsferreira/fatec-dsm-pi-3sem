@@ -82,7 +82,8 @@ class LoginView(View):
             login(request, user)
             return HttpResponseRedirect(reverse('homeCliente'))
         else:
-            return HttpResponse('Usuário ou senha inválidos.')
+            # Caso o usuário insira informações erradas
+            messages.info(request, 'Email e/ou senha incorretos ou conta inexistente.')
 
 def LogoutView(request):
     """Faz logout do usuário."""
