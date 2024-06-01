@@ -1,4 +1,4 @@
-from pyexpat.errors import messages
+from django.contrib import messages
 from django.views import View
 from django.shortcuts import render, redirect
 from .models import UsuarioModel  

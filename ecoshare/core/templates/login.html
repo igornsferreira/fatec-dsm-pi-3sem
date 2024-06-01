@@ -21,13 +21,20 @@
 <body>
 
     <!-- Info incorreta -->
-    {% for msg in messages %}
-        <div class="alert alert-info alert-dismissible fade show" role="alert">
-            <strong>Hey! </strong> {{ msg }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <span aria-hidden="true">&times;</span>
-        </div>
-    {% endfor %}
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <ul class="messages">
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
+                        {{ message }}
+                    </li>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                </ul>
+            </div>
+        {% endfor %}
+    {% endif %}
     <!-- End - Info incorreta -->
 
     <div id="login" class="container-fluid">
