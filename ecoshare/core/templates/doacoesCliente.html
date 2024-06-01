@@ -37,6 +37,7 @@
 <div id="doacao" class="content">
     <div class="card">
         <form action="" method="post">
+            {% csrf_token %}
             <h5>Cadastrar doação</h5>
             <input type="hidden" name="action" value="cadastrar">
             <div class="row" id="itens">
