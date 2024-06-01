@@ -84,6 +84,7 @@ class LoginView(View):
         else:
             # Caso o usuário insira informações erradas
             messages.info(request, 'Email e/ou senha incorretos ou conta inexistente.')
+            return render(request, self.template_name)
 
 def LogoutView(request):
     """Faz logout do usuário."""
@@ -103,8 +104,10 @@ class RelatorioClienteView(View):
         return render(request, self.template_name)
 
 class DoacoesClienteView(View):
+    template_name = 'doacoesCliente.html'
+    
     def get(self, request):
-        return render(request, 'doacoesCliente.html')
+        return render(request, self.template_name)
 
 class BrindesClienteView(View):
     template_name = 'brindesCliente.html'
