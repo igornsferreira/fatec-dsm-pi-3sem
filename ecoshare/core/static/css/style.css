@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 /*** Index ***/ 
 
 /* Navbar transparente */
@@ -6,13 +9,20 @@
     transition: background-color 0.3s ease;
 }
 
+.transparent-navbar .navbar-nav .nav-item a.nav-link {
+    text-decoration: none; 
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
 /* Navbar com fundo sólido */
 .solid-navbar {
-    background-color: #ffffff; 
+    background-color: rgb(4, 63, 35); 
     box-shadow: 0px 0px 5px grey;
 }
 
-ul li {
+.navbar ul li {
     margin: 7px;
     padding: 13px;
 }
@@ -22,21 +32,133 @@ ul li {
     justify-content: center;
 }
 
+.navbar-nav i {
+    color: rgb(4, 63, 35);
+}
+
 .nav-item button {
     border: none;
     border-radius: 7px;
-    background-color: rgb(254, 206, 13);
+    background-color: rgb(66, 153, 66);
     float: right;
 }
 
 .nav-item button:hover {
-    box-shadow: 0px 0px 5px #ebb51dff;
+    box-shadow: 1px 1px 5px rgb(165, 255, 165);
 }
 
 .nav-item button a.nav-link:hover {
     color: white !important;
     text-decoration: none;
 }
+
+#fundo {
+    background-image: url(../img/Fundo-Ecoshare.png);
+    background-size: cover;
+    height: 100%;
+}
+
+.fundo-item {
+    color: #ffffffff;
+    align-items: center;
+    padding-top: 220px;
+    padding-left: 40px;
+}
+
+#fundo button {    
+    text-align: center;
+}
+
+#fundo h1 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+#fundo p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+}
+
+#fundo .btn-index {
+    color: #ffffff;
+    background-color: #d75a1aff;
+    height: 45px;
+    width: 100px;
+}
+
+.btn-index:hover {
+    box-shadow: 0px 0px 4px rgb(255, 245, 112);
+}
+
+/* Rodapé
+-----------------------------*/
+
+footer {
+    background: rgb(46, 45, 45);
+    font-family:'Roboto', sans-serif; 
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .7), 0 2px 8px 0 rgba(0, 0, 0, .5), 0 1px 5px 0 rgba(0, 0, 0, .1);
+}
+
+footer #social {
+    padding-top: 20px;
+    background-color: rgb(56, 56, 56);
+}
+
+footer h4 {
+    color: #50be50ff;
+    font-size: 20px;
+    margin: 0 20px;
+    text-transform: uppercase;
+    font-family:'Roboto', sans-serif;
+}
+
+footer h4:hover {
+    color: #ebb51dff;
+}
+
+footer .navbar-nav a{
+    color: #ffffff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+footer .navbar-nav a:hover{
+    color: #ebb51dff;
+}  
+
+#contatos i {
+    color: #50be50ff; 
+}
+
+footer ul li{
+    margin: 4px 20px;
+    list-style: none;
+}
+
+footer span {
+    color: #ffffff; 
+}
+
+.social-media {
+    display: inline-block;    
+    float: right; 
+}
+
+.social-media i {
+    font-size: 20px;
+    margin: 0 10px;
+    float: left;
+    transition: all .3s ease;
+    color: white;
+}
+.social-media i:hover {
+    transform: scale(1.2);
+}
+
+#final {
+    background-color: rgb(66, 153, 66);
+}
+
 
 /*** LOGIN E CADASTRO ***/ 
 
@@ -74,12 +196,19 @@ nav {
     border-bottom: 2px solid #d75a1aff; 
 }
 
+.custom-alert {
+    font-size: 17px;
+    color: rgb(16, 54, 3) !important;
+    background-color: rgba(235, 240, 148, 0.93) !important;
+    border: 1px solid rgb(235, 240, 148) !important;
+}
+
 /* body */
 
 #left {
     height: 100vh;
     width: 100%;
-    background-image: url(../img/EcoShare-Login\ \(1\).png);
+    background-image: url(../img/EcoShare-Login.png);
     background-size: cover; 
 }
 
@@ -91,17 +220,33 @@ nav {
 
 #login form {
     margin-top: 50px;
-    width: 70%;
-    height: 41px;
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+#login h3 {
+    font-family: "Poppins", sans-serif;
+    color: #01400b;
+    font-size: 35px;
+    font-weight: bold;
 }
 
 #cadastro form {
-    margin-top: 50px;
-    height: 41px;
+    margin-top: 28px;
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+#cadastro form input[type="date"].empty::-webkit-datetime-edit {
+    color: transparent;
+}
+
+#cadastro form input[type="date"] {
+    color: black; 
 }
 
 input.form-control {
-    border-color: rgba(201, 197, 197, 0.541); 
+    border-color: rgba(172, 170, 170, 0.41); 
     outline: none;
 }
 

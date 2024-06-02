@@ -16,21 +16,20 @@
     <link rel="icon" href="#">
     
     <!-- Título -->
-    <title>Login | EcoShare</title>
+    <title>EcoShare | Entre ou Cadastre-se</title>
 </head>
 <body>
 
     <!-- Info incorreta -->
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-info alert-dismissible fade show" role="alert">
+            <div class="alert alert-info alert-dismissible fade show custom-alert mb-0" role="alert">
                 <ul class="messages">
-                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
                         {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
                         {{ message }}
-                    </li>
+                    </p>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                    <span aria-hidden="true">&times;</span>
                 </ul>
             </div>
         {% endfor %}
@@ -69,11 +68,11 @@
                         {% csrf_token %}
                         <div>
                             <div class="col-sm-12 mb-3">
-                                <label for="email">E-mail</label> 
+                                <label for="email" class="mb-2">E-mail</label> 
                                 <input class="form-control custom-border" type="email" name="email" required>
                             </div>
                             <div class="col-sm-12 mb-3">
-                                <label for="senha">Senha</label> 
+                                <label for="senha" class="mb-2">Senha</label> 
                                 <input class="form-control" type="password" name="senha" required>
                             </div>
                             <div class="col-sm-12 mb-5">

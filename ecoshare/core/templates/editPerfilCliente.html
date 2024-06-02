@@ -40,7 +40,7 @@
             {% csrf_token %}
             <h5>Editar perfil</h5>
             <input type="hidden" name="action" value="alterar">
-            <div class="row" id="itens">
+            <div class="row mt-4" id="itens">
                 <div class="col-sm-6"> 
                     <label for="nome">Nome</label>                   
                     <input class="form-control mb-2" type="text" value="{{ usuario.nome_completo }}">                    

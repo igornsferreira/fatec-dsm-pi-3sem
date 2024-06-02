@@ -25,3 +25,21 @@ function consultaCEP() {
 }
 
 document.getElementById('cep').addEventListener('blur', consultaCEP);
+
+/* Deixar input date transparente */
+document.addEventListener('DOMContentLoaded', function() {
+    var dateInput = document.querySelector('#cadastro form input[type="date"]');
+    updateDateInputState(dateInput);
+
+    dateInput.addEventListener('input', function() {
+        updateDateInputState(dateInput);
+    });
+
+    function updateDateInputState(input) {
+        if (input.value) {
+            input.classList.remove('empty');
+        } else {
+            input.classList.add('empty');
+        }
+    }
+});

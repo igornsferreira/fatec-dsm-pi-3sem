@@ -12,7 +12,7 @@
     <!-- ICONE -->
     <link rel="icon" href="#">
     <!-- Título -->
-    <title>Cadastro</title>
+    <title>EcoShare | Entre ou Cadastre-se</title>
 </head>
 <body>
     <div id="cadastro" class="container-fluid">
@@ -40,42 +40,48 @@
                     {% csrf_token %}
                     <input type="hidden" name="action" value="cadastrar">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <label for="nome">Nome</label>                    
-                            <input class="form-control mb-3" type="text" name="nome_completo" placeholder="Nome Completo" required>
-                        </div>
                         <div class="col-sm-6"> 
-                            <label for="cpf">CPF</label>                        
-                            <input class="form-control mb-3" type="number" name="cpf" placeholder="999.999.999-99" required>
-                            <label for="data_nascimento">Data de nascimento</label> 
-                            <input class="form-control mb-3" type="date" name="data_nascimento" value="31-03-2020" placeholder="Data de Nascimento" required="" id="id_data">
-                            <label for="rua">Rua</label>     
-                            <input class="form-control mb-3" type="text" name="rua" id="rua" required> 
-                            <label for="bairro">Bairro</label> 
-                            <input class="form-control mb-3" type="text" name="bairro" id="bairro" required> 
-                            <label for="estado">Estado</label>                   
-                            <input class="form-control mb-3" type="text" name="estado" id="estado" required>                    
+                            <label for="nome" class="mb-2">Nome completo</label>                    
+                            <input class="form-control mb-3" type="text" name="nome_completo" required>
+                            <label for="date" class="mb-2">Data de nascimento</label> 
+                            <input class="form-control mb-3" type="date" name="data_nascimento" value="31-03-2020" id="id_data" required>
+                            <label for="cep" class="mb-2">CEP</label>  
+                            <input class="form-control mb-3" type="text" name="cep" id="cep" required>
+                            <label for="numero" class="mb-2">Número</label>                       
+                            <input class="form-control mb-3" type="number" name="numero" required>                 
                         </div>
                         <div class="col-sm-6">
-                            <label for="telefone">Telefone</label> 
-                            <input class="form-control mb-3" type="number" name="telefone" placeholder="(99) 99999-9999" required>
-                            <label for="cep">CEP</label>  
-                            <input class="form-control mb-3" type="text" name="cep" id="cep" required>
-                            <label for="numero">Número</label>                       
-                            <input class="form-control mb-3" type="number" name="numero" required>
-                            <label for="cidade">Cidade</label> 
-                            <input class="form-control mb-3" type="text" name="cidade" id="cidade" required>   
-                            <label for="pais">País</label>
-                            <input class="form-control mb-3" type="text" name="pais" required>                     
+                            <label for="cpf" class="mb-2">CPF</label>                        
+                            <input class="form-control mb-3" type="number" name="cpf" required>
+                            <label for="telefone" class="mb-2">Telefone</label> 
+                            <input class="form-control mb-b" type="number" name="telefone" required>
+                            <label for="rua" class="mb-2">Rua</label>     
+                            <input class="form-control mb-3" type="text" name="rua" id="rua" required> 
+                            <label for="bairro" class="mb-2">Bairro</label> 
+                            <input class="form-control mb-3" type="text" name="bairro" id="bairro" required>    
                         </div>
-                        <div class="col-sm-12">
-                            <label for="email">E-mail</label> 
-                            <input class="form-control mb-3" type="email" name="email" placeholder="exemplo@email.com" required>
-                            <label for="senha">Senha</label> 
+                        <div class="col-sm-4">
+                            <label for="cidade" class="mb-2">Cidade</label> 
+                            <input class="form-control mb-3" type="text" name="cidade" id="cidade" required>  
+                        </div>
+                        <div class="col-sm-4">  
+                            <label for="estado" class="mb-2">Estado</label>                   
+                            <input class="form-control mb-3" type="text" name="estado" id="estado" required>  
+                        </div>
+                        <div class="col-sm-4">
+                            <label for="pais" class="mb-2">País</label>
+                            <input class="form-control mb-3" type="text" name="pais" required>                   
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="email" class="mb-2">E-mail</label> 
+                            <input class="form-control mb-3" type="email" name="email" required>
+                        </div>
+                        <div class="col-sm-6">
+                            <label for="senha" class="mb-2">Senha</label> 
                             <input class="form-control mb-3" type="password" name="senha" required>
                         </div>
                         <div class="col-sm-12">
-                            <button type="submit" class="btn btn-custom mt-3 mb-5">Cadastrar</button>
+                            <button type="submit" class="btn btn-custom mt-3">Cadastrar</button>
                         </div>
                     </div>
                 </form>
@@ -84,7 +90,6 @@
         </div>
     </div>
 </body>
-
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="{% static 'js/cep.js' %}"></script>
