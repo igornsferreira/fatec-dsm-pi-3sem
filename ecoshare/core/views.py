@@ -96,13 +96,22 @@ class HomeClienteView(View):
 
     def get(self, request):
         return render(request, self.template_name)
-
+    
 class RelatorioClienteView(View):
     template_name = 'relatorioCliente.html'
 
     def get(self, request):
-        return render(request, self.template_name)
-    
+        usuario = get_object_or_404(UsuarioModel, user=request.user)
+        doacoes = usuario.doacoes
+
+        for doacao in doacoes:
+            doacao['id'] = doacao.pop('_id')
+
+        context = {
+            'doacoes': doacoes,
+        }
+        return render(request, self.template_name, context)
+
 class DoacoesClienteView(LoginRequiredMixin, View):
     template_name = 'doacoesCliente.html'
 
