@@ -1,9 +1,22 @@
 from sqlite3 import IntegrityError
 from django.test import TestCase
 from django.urls import reverse
+from django.shortcuts import resolve_url as r
 from rest_framework import status
 from rest_framework.tests import APIClient, APITestCase
 from app.users.models import User
+
+class IndexGetPostTest(TestCase):
+    def setUp(self):
+        self.resp = self.client.get(r('index'), follow=True)
+        self.resp_post = self.client.post(r('index'))
+
+    def test_status_code(self):
+        self.assertEqual(self.resp.status_code , 200)
+        self.assertEqual(self.resp_post.status_code , 302)
+    
+    def test_template_used(self):
+        self.assertTemplateUsed(self.resp, 'index.html')
 
 class EnderecoVazioTest(TestCase):
     # def __init__(self, *args, **kwargs):
