@@ -1,10 +1,9 @@
 from django.contrib import messages
 from django.views import View
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from .models import UsuarioModel, DoacaoModel
 from bson import ObjectId
 from django.contrib.auth import logout, login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 from django.contrib.auth.models import User
