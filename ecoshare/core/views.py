@@ -88,14 +88,12 @@ class LoginView(View):
 def LogoutView(request):
     """Faz logout do usuário."""
     logout(request)
-    return HttpResponseRedirect(reverse('login'))
+    return HttpResponseRedirect(reverse('index'))
         
 class HomeClienteView(View):
     template_name = 'homeCliente.html'
 
     def get(self, request):
-        # Exibe a mensagem de boas-vindas
-        messages.info(request, 'Olá, seja bem-vindo a EcoShare!')
         return render(request, self.template_name)
     
 class RelatorioClienteView(View):

@@ -2,16 +2,12 @@
 
 <!-- Estilo customizado -->
 <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
-
 <!-- Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-
 <!-- Bootstrap Icon -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-
 <!-- ICONE -->
 <link rel="icon" href="#">
-
 <!-- Navbar -->
 <header> 
     <nav class="navbar navbar-expand-lg navbar-light fixed-top transparent-navbar">
@@ -33,7 +29,7 @@
                     <li class="nav-item ml-3">
                         <button><a href="{% url 'homeCliente' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Meu Perfil</a></button>
                     <li class="nav-item ml-3">
-                        <button><a href="{% url 'logout' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Sair</a></button>
+                        <button><a href="{% url 'logout' %}" class="nav-link button-link">Sair</a></button>
                     </li>
                     {% else %}
                     <li class="nav-item ml-3">
