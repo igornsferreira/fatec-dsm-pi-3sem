@@ -18,47 +18,45 @@
       <div class="row">
         <h1>Doe um reciclável e retire seu alimento!</h1>
         <p class="mt-4">Já pensou em colaborar com o meio ambiente e receber alimentos perecíveis em troca? Aqui, você poderá fazer parte de uma iniciativa sustentável e ainda desfrutar de alimentos úteis do dia a dia, contribuindo para um mundo mais consciente.</p>
+        {% if user.is_authenticated %}
+        <button class="btn btn-index mx-auto mt-5"><a href="{% url 'doacoesCliente' %}" class="nav-link"> Iniciar</a></button>
+        {% else %}
         <button class="btn btn-index mx-auto mt-5"><a href="{% url 'login' %}" class="nav-link"> Iniciar</a></button>
+        {% endif %}
       </div>
     </div>
   </div>
 </div>
     
 <section id="introducao">
-  <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        a
-      </div>
-      <div class="col-md-6" id="mensagem">
-        <h2>Transforme sua embalagem reciclável em um gesto de sustentabilidade: uma troca que alimenta o planeta e o futuro!</h2>
-      </div>
+      <h2>Transforme sua embalagem reciclável em um gesto de sustentabilidade: uma troca que alimenta o planeta e o futuro!</h2>
     </div>
-
-    <div class="row" id="cards">
+</section>   
+<section id="cards">  
+    <div class="row">
       <h3>Veja como é simples</h3>
       <div class="col-md-3">
-        <img src="#">
+        <img src="../static/img/Login-amico.svg">
         <h5>Inicie o cadastro</h5>
         <p>Vá até nossa página de login e realize o cadastro com seus dados pessoais. Após isso será possível logar na plataforma.</p>
       </div>
       <div class="col-md-3">
-        <img src="#">
+        <img src="../static/img/Mobile login-pana.svg">
         <h5>Portal do usuário</h5>
         <p>Assim que o login for efetuado, você será redirecionado para o portal do usuário, onde será possível registrar sua primeira doação de reciclável.</p>
       </div>
       <div class="col-md-3">
-        <img src="#">
+        <img src="../static/img/Search engines-amico.svg">
         <h5>Registro e troca de doação</h5>
         <p>Após uma doação ser registrada, será disponibilizado a solicitação de troca dos brindes. Basta solicitar a retirada que a senha e o endereço do local de coleta serão apresentados.</p>
       </div>
       <div class="col-md-3">
-        <img src="#">
+        <img src="../static/img/Checking boxes-rafiki.svg">
         <h5>Aguarde a confirmação</h5>
-        <p>Quando o processo for concluído, no local de coleta bastará apresentar os resíduos e caso esteja conforme registrado na plataforma, você receberá seu brinde. Vale ressaltar que após realizado a troca, a doação será confirmada e não poderá reutilizá-la.</p>
+        <p>Quando o processo for concluído, no local de coleta bastará apresentar os resíduos e caso esteja conforme registrado na plataforma, você receberá seu brinde. Após realizado a troca, a doação será confirmada e não poderá ser reutilizada.</p>
       </div>
     </div>
-  </div>
 </section>
 
 <!-- mensagem -->

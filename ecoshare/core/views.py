@@ -88,7 +88,7 @@ class LoginView(View):
 def LogoutView(request):
     """Faz logout do usuário."""
     logout(request)
-    return HttpResponseRedirect(reverse('index'))
+    return HttpResponseRedirect(reverse('login'))
         
 class HomeClienteView(View):
     template_name = 'homeCliente.html'

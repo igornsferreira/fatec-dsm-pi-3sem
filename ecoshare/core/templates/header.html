@@ -30,14 +30,15 @@
                         <a href="#contato" class="nav-link">Contato</a>
                     </li>
                     {% if user.is_authenticated %}
-                        <li class="nav-item ml-3">
-                            <button><a href="{% url 'homeCliente' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Meu Perfil</a></button>
-                            <button><a href="{% url 'logout' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Sair</a></button>
-                        </li>
+                    <li class="nav-item ml-3">
+                        <button><a href="{% url 'homeCliente' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Meu Perfil</a></button>
+                    <li class="nav-item ml-3">
+                        <button><a href="{% url 'logout' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i>Sair</a></button>
+                    </li>
                     {% else %}
-                        <li class="nav-item ml-3">
-                            <button><a href="{% url 'login' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i> Entre | Cadaste-se</a></button>
-                        </li>
+                    <li class="nav-item ml-3">
+                        <button><a href="{% url 'login' %}" class="nav-link button-link"><i class="bi bi-person-fill"></i> Entre | Cadaste-se</a></button>
+                    </li>
                     {% endif %}
                 </ul> 
             </div>
