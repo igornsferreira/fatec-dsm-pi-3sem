@@ -27,14 +27,16 @@
     <!-- Boas-vindas -->
     {% if messages %}
         {% for message in messages %}
-            <div class="alert alert-info alert-dismissible fade show custom-alert mb-0" role="alert">
+            <div class="alert alert-dismissible fade show custom-alert mb-0" role="alert">
                 <ul class="messages">
-                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                        {{ message }}
-                    </p>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Importante: {% endif %}
+                            {{ message | safe }}
+                        </li>
+                    {% endfor %}
                 </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endfor %}
     {% endif %}
