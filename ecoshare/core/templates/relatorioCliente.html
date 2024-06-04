@@ -62,12 +62,10 @@
                             <td>{{ doacao.item_recebido }}</td>
                             <td>{{ doacao.validacao|yesno:"Autorizado,Pendente" }}</td>
                             <td>
-
                               <!-- Button trigger modal -->
                               <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#modal{{ forloop.counter }}">
                                 Retirar
-                              </button>
-                              
+                              </button>                              
                               <!-- Modal -->
                               <div class="modal fade" id="modal{{ forloop.counter }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <div class="modal-dialog">
@@ -91,7 +89,31 @@
                               </div>
                               <!-- End - Modal -->
                             </td>
-                            <td><button type="submit" class="btn btn-cancel">Cancelar</button></td>
+                            
+                            <td>
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn btn-cancel" data-bs-toggle="modal" data-bs-target="#cancelar">
+                                Cancelar
+                              </button>                              
+                              <!-- Modal -->
+                              <div class="modal fade" id="cancelar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title" id="staticBackdropLabel">Cancelar doação</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Deseja mesmo cancelar essa doação? Lembre-se que o cancelamento não poderá ser desfeito!</p></div>
+                                    <div class="modal-footer">
+                                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                      <button type="button" class="btn btn-cancel" data-bs-dismiss="modal">Cancelar</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- End - Modal -->
+                            </td>
                           </tr>
                           {% endfor %}
                         </tbody>
