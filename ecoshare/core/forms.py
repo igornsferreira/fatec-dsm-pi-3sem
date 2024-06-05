@@ -3,79 +3,92 @@ from django.core.exceptions import ValidationError
 from .models import EnderecoModel, DoacaoModel, UsuarioModel
 from django.contrib.auth.forms import UserCreationForm
 
+
 class EnderecoForm(forms.ModelForm):
     class Meta:
         model = EnderecoModel
-        fields = ['cep', 'rua', 'bairro', 'numero', 'cidade', 'estado', 'pais']
+        fields = ["cep", "rua", "bairro", "numero", "cidade", "estado", "pais"]
+
 
 class DoacaoForm(forms.ModelForm):
     class Meta:
         model = DoacaoModel
-        fields = ['_id', 'material_doado', 'peso', 'data', 'item_recebido', 'validacao']
+        fields = ["_id", "material_doado", "peso", "data", "item_recebido", "validacao"]
         labels = {
-            'material_doado': 'Material Doado',
-            'peso': 'Peso',
-            'data': 'Data',
-            'item_recebido': 'Item Recebido',
+            "material_doado": "Material Doado",
+            "peso": "Peso",
+            "data": "Data",
+            "item_recebido": "Item Recebido",
         }
+
 
 class UsuarioForm(UserCreationForm):
     data_nascimento = forms.DateField(
         widget=forms.DateInput(
-            format=('%d/%m/%Y'),
+            format=("%d/%m/%Y"),
             attrs={
-                'class': 'form-control',
-                'placeholder': 'Data de Nascimento',
-                'type': 'date'
-            }
+                "class": "form-control",
+                "placeholder": "Data de Nascimento",
+                "type": "date",
+            },
         )
     )
 
     class Meta:
         model = UsuarioModel
-        fields = ['nome_completo', 'cpf', 'email', 'telefone', 'data_nascimento', 'endereco', 'doacoes']
+        fields = [
+            "nome_completo",
+            "cpf",
+            "email",
+            "telefone",
+            "data_nascimento",
+            "endereco",
+            "doacoes",
+        ]
         labels = {
-            'nome_completo': 'Nome Completo',
-            'cpf': 'CPF',
-            'email': 'Email',
-            'telefone': 'Telefone',
-            'data_nascimento': 'Data de Nascimento',
-            'endereco': 'Endereço',
-            'doacoes': 'Doações',
+            "nome_completo": "Nome Completo",
+            "cpf": "CPF",
+            "email": "Email",
+            "telefone": "Telefone",
+            "data_nascimento": "Data de Nascimento",
+            "endereco": "Endereço",
+            "doacoes": "Doações",
         }
         widgets = {
-            'nome_completo': forms.TextInput(attrs={'class': 'form-control'}),
-            'cpf': forms.TextInput(attrs={'class': 'form-control'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control'}),
-            'telefone': forms.TextInput(attrs={'class': 'form-control'}),
-            'endereco': forms.TextInput(attrs={'class': 'form-control'}),
+            "nome_completo": forms.TextInput(attrs={"class": "form-control"}),
+            "cpf": forms.TextInput(attrs={"class": "form-control"}),
+            "email": forms.EmailInput(attrs={"class": "form-control"}),
+            "telefone": forms.TextInput(attrs={"class": "form-control"}),
+            "endereco": forms.TextInput(attrs={"class": "form-control"}),
         }
 
     def clean_nome_completo(self):
-        nome_completo = self.cleaned_data['nome_completo']
+        nome_completo = self.cleaned_data["nome_completo"]
         return nome_completo.upper().strip()
 
     def clean_cpf(self):
-        cpf = self.cleaned_data['cpf']
+        cpf = self.cleaned_data["cpf"]
         cpf = cpf.strip()
         if len(cpf) == 11:
             return cpf
-        raise ValidationError('Insira um CPF válido no formato 999.999.999-99.')
-    
+        raise ValidationError("Insira um CPF válido no formato 999.999.999-99.")
+
     def clean_email(self):
-        email = self.cleaned_data['email']
+        email = self.cleaned_data["email"]
         return email
 
     def clean_telefone(self):
-        telefone = self.cleaned_data['telefone']
+        telefone = self.cleaned_data["telefone"]
         if telefone:
             return telefone
-        raise ValidationError('Insira um telefone válido no formato (99) 99999-9999 ou (99) 9999-9999.')
+        raise ValidationError(
+            "Insira um telefone válido no formato (99) 99999-9999 ou (99) 9999-9999."
+        )
 
     def clean_endereco(self):
-        endereco = self.cleaned_data['endereco']
+        endereco = self.cleaned_data["endereco"]
         return endereco
-    
+
     def clean_doacoes(self):
-        doacoes = self.cleaned_data['doacoes']
+        doacoes = self.cleaned_data["doacoes"]
         return doacoes
