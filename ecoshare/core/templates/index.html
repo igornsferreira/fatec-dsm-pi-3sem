@@ -2,37 +2,48 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Título -->
-        <title>EcoShare</title>
-    </head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ICONE -->
+    <link rel="icon" href="../static/img/icon.png">
+    <!-- Título -->
+    <title>EcoShare</title>
+  </head>
 <body class="vh-100 overflow-x-hidden">
 
 {% include "header.html" %}
 
-<div class="col-md-12 gx-0" id="fundo">
-  <div class="container">
-    <div class=" col-md-6 fundo-item text-center">
-      <div class="row">
-        <h1>Doe um reciclável e retire seu alimento!</h1>
-        <p class="mt-4">Já pensou em colaborar com o meio ambiente e receber alimentos perecíveis em troca? Aqui, você poderá fazer parte de uma iniciativa sustentável e ainda desfrutar de alimentos úteis do dia a dia, contribuindo para um mundo mais consciente.</p>
-        {% if user.is_authenticated %}
-        <button class="btn btn-index mx-auto mt-5"><a href="{% url 'doacoesCliente' %}" class="nav-link"> Iniciar</a></button>
-        {% else %}
-        <button class="btn btn-index mx-auto mt-5"><a href="{% url 'login' %}" class="nav-link"> Iniciar</a></button>
-        {% endif %}
+<section id="fundo">
+  <div class="col-md-12 gx-0" id="home">
+    <div class="container">
+      <div class=" col-md-6 fundo-item text-center">
+        <div class="row">
+          <h1>Doe um reciclável e retire seu alimento!</h1>
+          <p class="mt-4">Já pensou em colaborar com o meio ambiente e receber alimentos perecíveis em troca? Aqui, você poderá fazer parte de uma iniciativa sustentável e ainda desfrutar de alimentos úteis do dia a dia, contribuindo para um mundo mais consciente.</p>
+          {% if user.is_authenticated %}
+          <button class="btn btn-index mx-auto mt-5"><a href="{% url 'doacoesCliente' %}" class="nav-link">Inicie, já!</a></button>
+          {% else %}
+          <button class="btn btn-index mx-auto mt-5"><a href="{% url 'login' %}" class="nav-link">Inicie, já!</a></button>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
-</div>
-    
+</section>
+
 <section id="introducao">
   <div class="row text-center">
-    <h2>Transforme sua embalagem reciclável em um gesto de sustentabilidade: uma troca que alimenta o planeta e o futuro!</h2>
+    <div class="col-md-6">
+      <img src="../static/img/icon.png" width="40%">
+    </div>
+    <div class="col-md-6 mt-4">
+      <h2>Transforme sua embalagem reciclável em um gesto de sustentabilidade: uma troca que alimenta o planeta e o futuro!</h2>
+    </div>
   </div>
-</section>   
+</section>  
+
+
 <section id="cards">  
   <div class="container">
     <div class="row">
@@ -61,33 +72,64 @@
   </div>
 </section>
 
+<section id="sobre">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Sobre a EcoShare</h2>
+        <p>Somos uma empresa dedicada à sustentabilidade e ao combate à fome. Nosso projeto inovador visa transformar resíduos plásticos em uma oportunidade para alimentar pessoas necessitadas. Através da nossa iniciativa, incentivamos a doação de embalagens plásticas usadas, que são trocadas por alimentos perecíveis.</p>
+      </div>
+      <div class="col-md-6  text-center">
+        <img src="../static/img/planta.png" width="35%">
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre2">
+  <div class="container">
+<div class="row text-center">
+  <div class="col-md-12">
+    <h3>Missão</h3>
+    <p>Nossa missão é dupla: reduzir a poluição plástica e proporcionar acesso os alimentos mais utilizados no cotidiano para aqueles que mais precisam. Acreditamos que pequenas ações podem gerar grandes mudanças, e nossa abordagem combina responsabilidade ambiental com solidariedade social.</p>
+    <p>Junte-se a nós nessa jornada para criar um futuro mais sustentável e alimentar esperanças. Transforme resíduos em recursos, e ajude-nos a construir um mundo onde o plástico não seja um problema, mas parte da solução!</p>
+  </div>
+  <div class="col-md-12">
+    <img src="../static/img/pc.png" width="15%">
+  </div>
+</div>
+</div>
+</section>
+
 <!-- mensagem -->
 <section id="contato">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
-        <h3>Fale conosco</h3>
-        <p>Nos envie uma mensagem preenchendo o formulário, entraremos em contato o mais rápido possível!</p>
+        <h1>Ficou alguma dúvida?</h1>
+        <h4>Fale conosco</h4>
+        <p>Nos envie uma mensagem preenchendo o formulário e entraremos em contato o mais rápido possível!</p>
         <p>Ou se preferir, tire suas dúvidas através do telefone:</p>
-        <h3>(19) 1234-5678</h3>
+        <h4>(19) 1234-5678</h4>
       </div>
       <div class="col-md-6">
         <div class="mb-3">
-          <label for="nome" class="form-label">Nome completo </label>
+          <label for="nome" class="form-label">Nome completo</label>
           <input type="nome" class="form-control" id="nome" placeholder="Digite seu nome">
         </div>
         <div class="mb-3">
-          <label for="email" class="form-label">E-mail </label>
+          <label for="email" class="form-label">E-mail</label>
           <input type="email" class="form-control" id="email" placeholder="Digite seu e-mail">
         </div>
         <div class="mb-3">
-          <label for="telefone" class="form-label">telefone </label>
+          <label for="telefone" class="form-label">telefone</label>
           <input type="telefone" class="form-control" id="telefone" placeholder="Digite seu telefone">
         </div>
         <div class="mb-3">
           <label for="comentario" class="form-label">Comentário</label>
           <textarea class="form-control" id="comentario" placeholder="Escreva uma mensagem" rows="3"></textarea>
-          <button class="btn btn-custom mt-3"><a href="#" class="nav-link"> - Enviar</a></button>
+          <button class="btn btn-custom mt-3"><a href="#" class="nav-link">Enviar</a></button>
         </div>
       </div>
     </div>
