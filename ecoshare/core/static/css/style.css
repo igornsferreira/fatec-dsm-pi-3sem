@@ -105,16 +105,21 @@
 /** sobre nos **/ 
 
 #sobre {
-    margin: 80px 0;
+    background-image: url(../img/Sobre-nós.png);
+    background-size: 100% auto; 
+    height: 100%;
     padding: 80px;
     color: white;
     background-color: #eb9800;
 }
 
 #sobre2 {
-    margin: 80px 0;
-    padding: 80px;
+    padding: 40px;
     background-color: white;
+}
+
+#sobre {
+    
 }
 
 /** suporte **/ 
@@ -315,6 +320,7 @@ input.form-control:focus {
 #login .password:hover {
     color: rgb(196, 75, 14);
 }
+
 
 /** PORTAL DO CLIENTE ***/
 
