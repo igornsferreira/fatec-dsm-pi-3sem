@@ -12,6 +12,9 @@ from django.http.response import HttpResponse
 from django.urls import reverse
 from django.shortcuts import get_object_or_404
 
+import secrets
+import string
+
 class IndexView(View):
     template_name = 'index.html'
     
@@ -95,7 +98,16 @@ class HomeClienteView(View):
 
     def get(self, request):
         return render(request, self.template_name)
-    
+
+def generate_random_password():
+    # Define os caracteres permitidos (letras minúsculas, dígitos e caracteres especiais)
+    allowed_chars = string.ascii_letters + string.digits + "!@#$%&"
+
+    # Gera uma senha aleatória com 6 caracteres
+    random_password = ''.join(secrets.choice(allowed_chars) for _ in range(6))
+
+    return random_password
+
 class RelatorioClienteView(View):
     template_name = 'relatorioCliente.html'
 
@@ -106,8 +118,11 @@ class RelatorioClienteView(View):
         for doacao in doacoes:
             doacao['id'] = doacao.pop('_id')
 
+        senha_aleatoria = generate_random_password()
+
         context = {
             'doacoes': doacoes,
+            'senha_aleatoria': senha_aleatoria,
         }
         return render(request, self.template_name, context)
 
