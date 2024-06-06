@@ -235,12 +235,20 @@ nav {
 
 #left {
     background-image: url(../img/EcoShare-Login.png);
-    background-size: 100% auto; 
-    height: 100%;
+    background-size: 100% auto;
+    height: 100%; 
+}
+
+#cadastro {
+    height: 100vh; 
 }
 
 #right {
     padding: 0 87px;
+}
+
+#login {
+    height: 100vh;
 }
 
 /* Formulario */
@@ -251,7 +259,7 @@ nav {
     color: #4e4e4e;
 }
 
-#login h3 {
+#login h2 {
     font-family: "Poppins", sans-serif;
     color: #01400b;
     font-size: 35px;
