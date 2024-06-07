@@ -13,7 +13,7 @@ __pycache__/
 *.so
 
 # Ignorar arquivos do ambiente virtual
-.venv
+venv
 
 # Ignorar arquivos de configuração de ambiente
 .vscode
