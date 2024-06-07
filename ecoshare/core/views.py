@@ -125,6 +125,24 @@ class RelatorioClienteView(View):
             'senha_aleatoria': senha_aleatoria,
         }
         return render(request, self.template_name, context)
+    
+    def post(self, request):
+        action = request.POST.get('action')
+        doacao_id = request.POST.get('doacao_id')
+
+        if action == 'delete' and doacao_id:
+            try:
+                usuario = UsuarioModel.objects.get(user=request.user)
+
+                # Filtro de doações para remover a doação com o id especificado
+                doacoes_atualizadas = [doacao for doacao in usuario.doacoes if str(doacao['_id']) != doacao_id]
+
+                UsuarioModel.objects.filter(user=request.user).update(doacoes=doacoes_atualizadas)
+
+                messages.success(request, "Doação cancelada com sucesso.")
+            except UsuarioModel.DoesNotExist:
+                messages.error(request, "Usuário não encontrado.")
+        return HttpResponseRedirect(reverse('relatorioCliente'))
 
 class DoacoesClienteView(LoginRequiredMixin, View):
     template_name = 'doacoesCliente.html'
