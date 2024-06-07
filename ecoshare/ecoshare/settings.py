@@ -133,3 +133,6 @@ LOGIN_URL = 'login'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Adiciona '/' no final dos urls que não o tiverem
+APPEND_SLASH = True
