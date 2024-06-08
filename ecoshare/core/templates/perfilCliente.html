@@ -62,7 +62,7 @@
                         <label for="cpf">CPF</label>                        
                         <input class="form-control mb-2" type="text" value="{{ usuario.cpf }}" disabled>                    
                         <label for="data_nascimento">Data de nascimento</label> 
-                        <input class="form-control mb-2" type="date" value="{{ usuario.data_nascimento }}" disabled>  
+                        <input class="form-control mb-2" type="date" value="{{ usuario.data_nascimento|date:"Y-m-d" }}" disabled>  
                         <label for="senha">Senha</label> 
                         <input class="form-control mb-3" type="password" value="{{ usuario.senha }}" disabled>               
                         <label for="rua">Rua</label>                     
