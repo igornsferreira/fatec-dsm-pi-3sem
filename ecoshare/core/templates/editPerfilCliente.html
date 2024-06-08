@@ -1,6 +1,5 @@
 
 {% load static %}
- 
 <!DOCTYPE html>
 <html>
     <head>
@@ -17,7 +16,6 @@
         <!-- Título -->
         <title>Meu perfil</title>
     </head>
- 
 <body>
 
     <!-- sidebar -->
@@ -41,37 +39,36 @@
             <form action="" method="post">
                 {% csrf_token %}
                 <h5>Editar perfil</h5>
-                <input type="hidden" name="action" value="alterar">
                 <div class="row mt-4" id="itens">
                     <div class="col-sm-6"> 
                         <label for="nome">Nome</label>                   
-                        <input class="form-control mb-2" type="text" value="{{ usuario.nome_completo }}">                    
+                        <input class="form-control mb-2" type="text" name="nome_completo" value="{{ usuario.nome_completo }}">                    
                         <label for="telefone">Telefone</label>                     
-                        <input class="form-control mb-2" type="number" value="{{ usuario.telefone }}">                      
+                        <input class="form-control mb-2" type="text" name="telefone" value="{{ usuario.telefone }}">                      
                         <label for="email">E-mail</label> 
-                        <input class="form-control mb-2" type="text" value="{{ usuario.email }}">                  
+                        <input class="form-control mb-2" type="email" name="email" value="{{ usuario.email }}">                  
                         <label for="cep">CEP</label> 
-                        <input class="form-control mb-2" type="number" value="{{ usuario.endereco.cep }}">                     
+                        <input class="form-control mb-2" type="text" name="cep" value="{{ usuario.endereco.cep }}">                     
                         <label for="numero">Número</label>                        
-                        <input class="form-control mb-2" type="number" value="{{ usuario.endereco.numero }}">                     
+                        <input class="form-control mb-2" type="text" name="numero" value="{{ usuario.endereco.numero }}">                     
                         <label for="cidade">Cidade</label> 
-                        <input class="form-control mb-2" type="text" value="{{ usuario.endereco.cidade }}">                     
+                        <input class="form-control mb-2" type="text" name="cidade" value="{{ usuario.endereco.cidade }}">                     
                         <label for="pais">País</label> 
-                        <input class="form-control mb-2" type="text" value="{{ usuario.endereco.pais }}">                      
+                        <input class="form-control mb-2" type="text" name="pais" value="{{ usuario.endereco.pais }}">                      
                     </div>
                     <div class="col-sm-6">                    
                         <label for="cpf">CPF</label>                        
-                        <input class="form-control mb-2" type="number" value="{{ usuario.cpf }}">                    
+                        <input class="form-control mb-2" type="text" name="cpf" value="{{ usuario.cpf }}">                    
                         <label for="data_nascimento">Data de nascimento</label> 
-                        <input class="form-control mb-2" type="date" value="{{ usuario.data_nascimento }}">  
+                        <input class="form-control mb-2" type="date" name="data_nascimento" value="{{ usuario.data_nascimento|date:"Y-m-d" }}">  
                         <label for="senha">Senha</label> 
-                        <input class="form-control mb-3" type="password" value="{{ usuario.senha }}">               
+                        <input class="form-control mb-3" type="password" name="senha" value="{{ usuario.senha }}">               
                         <label for="rua">Rua</label>                     
-                        <input class="form-control mb-2" type="text" value="{{ usuario.endereco.rua }}">                     
+                        <input class="form-control mb-2" type="text" name="rua" value="{{ usuario.endereco.rua }}">                     
                         <label for="bairro">Bairro</label> 
-                        <input class="form-control mb-2" type="text" value="{{ usuario.endereco.bairro }}">                       
+                        <input class="form-control mb-2" type="text" name="bairro" value="{{ usuario.endereco.bairro }}">                       
                         <label for="estado">Estado</label>                 
-                        <input class="form-control mb-2" type="text" value="{{ usuario.endereco.estado }}">                     
+                        <input class="form-control mb-2" type="text" name="estado" value="{{ usuario.endereco.estado }}">                     
                     </div>
                     <div class="col-sm-12">
                         <button type="submit" class="btn btn-custom mt-3">Salvar</button>

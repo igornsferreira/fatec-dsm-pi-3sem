@@ -139,7 +139,6 @@ class RelatorioClienteView(View):
 
                 UsuarioModel.objects.filter(user=request.user).update(doacoes=doacoes_atualizadas)
 
-                messages.success(request, "Doação cancelada com sucesso.")
             except UsuarioModel.DoesNotExist:
                 messages.error(request, "Usuário não encontrado.")
         return HttpResponseRedirect(reverse('relatorioCliente'))
@@ -223,3 +222,41 @@ class EditPerfilClienteView(LoginRequiredMixin, TemplateView):
         usuario = get_object_or_404(UsuarioModel, user=self.request.user)
         context['usuario'] = usuario
         return context
+
+    def post(self, request):
+        usuario = get_object_or_404(UsuarioModel, user=request.user)
+        
+        # Obtenha os dados do formulário
+        nome_completo = request.POST.get('nome_completo')
+        cpf = request.POST.get('cpf')
+        email = request.POST.get('email')
+        telefone = request.POST.get('telefone')
+        data_nascimento = request.POST.get('data_nascimento')
+        senha = request.POST.get('senha')
+
+        # Pegue o _id do endereço existente
+        endereco_id = usuario.endereco['_id']
+        
+        endereco_dict = {
+            "_id": endereco_id,  # Certifique-se de que o _id está incluído
+            "cep": request.POST.get('cep'),
+            "rua": request.POST.get('rua'),
+            "bairro": request.POST.get('bairro'),
+            "numero": request.POST.get('numero'),
+            "cidade": request.POST.get('cidade'),
+            "estado": request.POST.get('estado'),
+            "pais": request.POST.get('pais')
+        }
+
+        # Atualizar os campos do usuário
+        UsuarioModel.objects.filter(user=request.user).update(
+            nome_completo=nome_completo,
+            cpf=cpf,
+            email=email,
+            telefone=telefone,
+            data_nascimento=data_nascimento,
+            senha=senha,
+            endereco=endereco_dict
+        )
+
+        return HttpResponseRedirect(reverse('perfilCliente'))
