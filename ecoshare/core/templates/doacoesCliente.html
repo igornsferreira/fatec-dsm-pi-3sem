@@ -43,7 +43,7 @@
                 <div class="row" id="itens">
                     <div class="col-sm-6"> 
                         <label for="data">Data</label>                   
-                        <input class="form-control mb-3" type="date" name="data" placeholder="Data da doação" required>       
+                        <input class="form-control mb-3" type="date" name="data" id="data" placeholder="Data da doação" required readonly>       
                         <label for="material">Material</label>
                         <select class="form-control mb-3" name="material" id="material" required>
                             <option value="" disabled selected>Selecione</option>
@@ -82,7 +82,7 @@
         </div>
     </div>
     <!-- End - form doação -->
-
+    <script src="{% static 'js/data-doacao.js' %}"></script>
 </body>
  
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
