@@ -44,7 +44,7 @@
 }
 
 .nav-item button:hover {
-    box-shadow: 1px 1px 5px rgb(165, 255, 165);
+    box-shadow: 1px 1px 5px rgb(253, 155, 69);
 }
 
 .nav-item button a.nav-link:hover {
@@ -102,35 +102,62 @@
 #introducao h2 {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
+    color: #01400b;
+    font-size: 30px;
 }
 
-/** instrições **/ 
+/** instruções **/ 
+
+#cards {
+    margin: 100px 0;
+    font-family: "Poppins", sans-serif;
+    color: #1d2603;
+}
+
+#cards .col-md-3{
+    padding: 15px;
+}
+
+#cards h5 {
+    margin: 20px 0;
+    color: rgb(12, 48, 12);
+    font-weight: bold;
+}
+
+#cards h2{
+    font-weight: 600;
+    margin-bottom: 65px;
+}
+
+#cards p {
+    font-size: 14px;
+}
 
 /** sobre nos **/ 
 
 #sobre {
-    background-image: url(../img/Sobre-nós.png);
-    background-size: 100% auto; 
-    height: 100%;
+    background-color: #f2ecddff; 
     padding: 75px;
     color: #1d2603;
+    margin: 120px 0;
 }
 
 #sobre h2 {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
+    color: #01400b;
 }
 
 #sobre p {
     margin-top: 15px;
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
 }
 
 #missao {
-    margin-bottom: 40px;
-    color: #1d2603;
+    margin-bottom: 170px;
+    color: #01400b;
 }
 
 #missao h2 {
@@ -140,12 +167,28 @@
 
 #missao p {
     margin-top: 15px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
 }
 
 /** suporte **/ 
+
+#contato {
+    margin-bottom: 80px;
+    font-family: "Poppins", sans-serif;
+    color: #01400b;
+}
+
+#contato h1 {
+    font-weight: bold;
+}
+
+#contato h5 {
+    margin: 25px 0;
+    font-weight: bold;
+    color: rgb(235, 176, 16);
+}
 
 /** Rodapé **/
 
@@ -314,6 +357,12 @@ input.form-control {
 }
 
 input.form-control:focus {
+    outline: none;
+    box-shadow: 0px 0px 3px rgb(255, 245, 112);
+    border-color: rgba(201, 197, 197, 0.541); 
+}
+
+textarea.form-control:focus {
     outline: none;
     box-shadow: 0px 0px 3px rgb(255, 245, 112);
     border-color: rgba(201, 197, 197, 0.541); 

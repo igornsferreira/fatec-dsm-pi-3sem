@@ -16,97 +16,98 @@
 </head>
 <body>
 
-    <!-- Info de duas pessoas batendo -->
-    <!-- {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-dismissible fade show custom-alert mb-0" role="alert">
-                <ul class="messages">
-                    {% for message in messages %}
-                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Importante: {% endif %}
-                            {{ message | safe }}
-                        </p>
-                    {% endfor %}
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        {% endfor %}
-    {% endif %} -->
-    <!-- End - Info de duas pessoas batendo -->
+<!-- Info de duas pessoas batendo -->
+<!-- {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-dismissible fade show custom-alert mb-0" role="alert">
+            <ul class="messages">
+                {% for message in messages %}
+                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Importante: {% endif %}
+                        {{ message | safe }}
+                    </p>
+                {% endfor %}
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %} -->
 
-    <div id="cadastro" class="container-fluid">
-        <div class="row h-100">
-            <div class="col-md-6 gx-0">
-                <div id="left">
-                    
-                </div>
-            </div>
-            <div class="col-sm-6 gx-0">
-                <div id="right">
-                <!--Navbar-->
-                <nav class="navbar navbar-expand-md">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="{% url 'login' %}" class="nav-link mr-3">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{% url 'cadastro' %}" class="nav-link active ml-3">Cadastre-se</a>    
-                        </li>
-                    </ul>
-                </nav>
- 
-                <form action="{% url 'cadastro' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="action" value="cadastrar">
-                    <div class="row">
-                        <div class="col-sm-6"> 
-                            <label for="nome" class="mb-2">Nome completo</label>                    
-                            <input class="form-control mb-3" type="text" name="nome_completo" required>
-                            <label for="date" class="mb-2">Data de nascimento</label> 
-                            <input class="form-control mb-3" type="date" name="data_nascimento" value="31-03-2020" id="id_data" required>
-                            <label for="cep" class="mb-2">CEP</label>  
-                            <input class="form-control mb-3" type="text" name="cep" id="cep" required>
-                            <label for="numero" class="mb-2">Número</label>                       
-                            <input class="form-control mb-3" type="number" name="numero" required>                 
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="cpf" class="mb-2">CPF</label>                        
-                            <input class="form-control mb-3" type="number" name="cpf" required>
-                            <label for="telefone" class="mb-2">Telefone</label> 
-                            <input class="form-control mb-3" type="number" name="telefone" required>
-                            <label for="rua" class="mb-2">Rua</label>     
-                            <input class="form-control mb-3" type="text" name="rua" id="rua" required> 
-                            <label for="bairro" class="mb-2">Bairro</label> 
-                            <input class="form-control mb-3" type="text" name="bairro" id="bairro" required>    
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="cidade" class="mb-2">Cidade</label> 
-                            <input class="form-control mb-3" type="text" name="cidade" id="cidade" required>  
-                        </div>
-                        <div class="col-sm-4">  
-                            <label for="estado" class="mb-2">Estado</label>                   
-                            <input class="form-control mb-3" type="text" name="estado" id="estado" required>  
-                        </div>
-                        <div class="col-sm-4">
-                            <label for="pais" class="mb-2">País</label>
-                            <input class="form-control mb-3" type="text" name="pais" id="pais" required>                   
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="email" class="mb-2">E-mail</label> 
-                            <input class="form-control mb-2" type="email" name="email" required>
-                        </div>
-                        <div class="col-sm-6">
-                            <label for="senha" class="mb-2">Senha</label> 
-                            <input class="form-control mb-2" type="password" name="senha" required>
-                        </div>
-                        <div class="col-sm-12">
-                            <button type="submit" class="btn btn-custom mt-2 mb-3">Cadastrar</button>
-                        </div>
-                    </div>
-                </form>
+<!-- End - Info de duas pessoas batendo -->
+<div id="cadastro" class="container-fluid">
+    <div class="row h-100">
+        <div class="col-md-6 gx-0">
+            <div id="left">
+                
             </div>
         </div>
+        <div class="col-sm-6 gx-0">
+            <div id="right">
+            <!--Navbar-->
+            <nav class="navbar navbar-expand-md">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link mr-3">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'cadastro' %}" class="nav-link active ml-3">Cadastre-se</a>    
+                    </li>
+                </ul>
+            </nav>
+
+            <form action="{% url 'cadastro' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" name="action" value="cadastrar">
+                <div class="row">
+                    <div class="col-sm-6"> 
+                        <label for="nome" class="mb-2">Nome completo</label>                    
+                        <input class="form-control mb-3" type="text" name="nome_completo" required>
+                        <label for="date" class="mb-2">Data de nascimento</label> 
+                        <input class="form-control mb-3" type="date" name="data_nascimento" value="31-03-2020" id="id_data" required>
+                        <label for="cep" class="mb-2">CEP</label>  
+                        <input class="form-control mb-3" type="text" name="cep" id="cep" required>
+                        <label for="numero" class="mb-2">Número</label>                       
+                        <input class="form-control mb-3" type="number" name="numero" required>                 
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="cpf" class="mb-2">CPF</label>                        
+                        <input class="form-control mb-3" type="number" name="cpf" required>
+                        <label for="telefone" class="mb-2">Telefone</label> 
+                        <input class="form-control mb-3" type="number" name="telefone" required>
+                        <label for="rua" class="mb-2">Rua</label>     
+                        <input class="form-control mb-3" type="text" name="rua" id="rua" required> 
+                        <label for="bairro" class="mb-2">Bairro</label> 
+                        <input class="form-control mb-3" type="text" name="bairro" id="bairro" required>    
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="cidade" class="mb-2">Cidade</label> 
+                        <input class="form-control mb-3" type="text" name="cidade" id="cidade" required>  
+                    </div>
+                    <div class="col-sm-4">  
+                        <label for="estado" class="mb-2">Estado</label>                   
+                        <input class="form-control mb-3" type="text" name="estado" id="estado" required>  
+                    </div>
+                    <div class="col-sm-4">
+                        <label for="pais" class="mb-2">País</label>
+                        <input class="form-control mb-3" type="text" name="pais" id="pais" required>                   
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="email" class="mb-2">E-mail</label> 
+                        <input class="form-control mb-2" type="email" name="email" required>
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="senha" class="mb-2">Senha</label> 
+                        <input class="form-control mb-2" type="password" name="senha" required>
+                    </div>
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-custom mt-2 mb-3">Cadastrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+
 </body>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

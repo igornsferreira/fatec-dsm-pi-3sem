@@ -16,82 +16,77 @@
 </head>
 <body>
 
-    <!-- Info incorreta -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-dismissible fade show custom-alert mb-0" role="alert">
-                <ul class="messages">
-                    {% for message in messages %}
-                        <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Importante: {% endif %}
-                            {{ message | safe }}
-                        </p>
-                    {% endfor %}
-                </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<!-- Info incorreta -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-dismissible fade show custom-alert mb-0" role="alert">
+            <ul class="messages">
+                {% for message in messages %}
+                    <p{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Importante: {% endif %}
+                        {{ message | safe }}
+                    </p>
+                {% endfor %}
+            </ul>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+<!-- End - Info incorreta -->
+<div id="login" class="container-fluid">
+    <div class="row h-100">
+        <div class="col-md-6 gx-0">
+            <div id="left">
             </div>
-        {% endfor %}
-    {% endif %}
-    <!-- End - Info incorreta -->
-
-    <div id="login" class="container-fluid">
-        <div class="row h-100">
-            <div class="col-md-6 gx-0">
-                <div id="left">
-
+        </div>
+        <div class="col-md-6 gx-0">
+            <div id="right">
+                <!-- Navbar -->
+                <nav class="navbar navbar-expand-md">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="{% url 'login' %}" class="nav-link active mr-3">Login</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a href="{% url 'cadastro' %}" class="nav-link ml-3">Cadastre-se</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End - Navbar -->
+                <div class="row mt-5">
+                    <h2>Seja bem-vindo!</h2>
                 </div>
-            </div>
-            <div class="col-md-6 gx-0">
-                <div id="right">
-
-                    <!-- Navbar -->
-                    <nav class="navbar navbar-expand-md">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a href="{% url 'login' %}" class="nav-link active mr-3">Login</a> 
-                            </li>
-                            <li class="nav-item">
-                                <a href="{% url 'cadastro' %}" class="nav-link ml-3">Cadastre-se</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- End - Navbar -->
-
-                    <div class="row mt-5">
-                        <h2>Seja bem-vindo!</h2>
-                    </div>
-
-                    <!-- Forms login -->  
-                    <form action="{% url 'login' %}" method="post">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-sm-12 mb-3">
-                                <label for="email" class="mb-2">E-mail</label> 
-                                <input class="form-control custom-border" type="email" name="email" required>
-                            </div>
-                            <div class="col-sm-12 mb-3">
-                                <label for="senha" class="mb-2">Senha</label> 
-                                <input class="form-control" type="password" name="senha" required>
-                            </div>
-                            <div class="col-sm-12 mb-5">
-                                <label class="form-check-label"><input class="form-check-input" type="checkbox" value="" id="remember_me">
-                                    Lembre-se de mim
-                                </label>
-                            </div>
-                            <div class="col-sm-12 mb-3">
-                                <a href="#" class="password">Esqueceu sua senha?</a>
-                            </div>
-                            <div class="col-sm-12 mb-5">
-                                <button type="submit" class="btn btn-custom mt-3">Entrar</button>
-                            </div>
+                <!-- Forms login -->  
+                <form action="{% url 'login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12 mb-3">
+                            <label for="email" class="mb-2">E-mail</label> 
+                            <input class="form-control custom-border" type="email" name="email" required>
                         </div>
-                    </form>
-                    <!-- End - Forms login -->
-                </div>
+                        <div class="col-sm-12 mb-3">
+                            <label for="senha" class="mb-2">Senha</label> 
+                            <input class="form-control" type="password" name="senha" required>
+                        </div>
+                        <div class="col-sm-12 mb-5">
+                            <label class="form-check-label"><input class="form-check-input" type="checkbox" value="" id="remember_me">
+                                Lembre-se de mim
+                            </label>
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <a href="#" class="password">Esqueceu sua senha?</a>
+                        </div>
+                        <div class="col-sm-12 mb-5">
+                            <button type="submit" class="btn btn-custom mt-3">Entrar</button>
+                        </div>
+                    </div>
+                </form>
+                <!-- End - Forms login -->
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body> 
 </html>
