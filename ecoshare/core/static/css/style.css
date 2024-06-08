@@ -39,7 +39,7 @@
 .nav-item button {
     border: none;
     border-radius: 7px;
-    background-color: rgb(66, 153, 66);
+    background-color: #d75a1aff;
     float: right;
 }
 
@@ -81,6 +81,7 @@
 
 #fundo .btn-index {
     color: #ffffff;
+    font-weight: 600;
     background-color: #d75a1aff;
     height: 45px;
     width: 100px;
@@ -96,6 +97,9 @@
     margin: 80px 0;
     padding: 80px;
     background-color: #f2ecddff;
+}
+
+#introducao h2 {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
 }
@@ -108,18 +112,37 @@
     background-image: url(../img/Sobre-nós.png);
     background-size: 100% auto; 
     height: 100%;
-    padding: 80px;
-    color: white;
-    background-color: #eb9800;
+    padding: 75px;
+    color: #1d2603;
 }
 
-#sobre2 {
-    padding: 40px;
-    background-color: white;
+#sobre h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
 }
 
-#sobre {
-    
+#sobre p {
+    margin-top: 15px;
+    font-size: 19px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+
+#missao {
+    margin-bottom: 40px;
+    color: #1d2603;
+}
+
+#missao h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+}
+
+#missao p {
+    margin-top: 15px;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
 }
 
 /** suporte **/ 
