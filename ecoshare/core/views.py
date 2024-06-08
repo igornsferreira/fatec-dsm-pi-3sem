@@ -97,7 +97,8 @@ class HomeClienteView(View):
     template_name = 'homeCliente.html'
 
     def get(self, request):
-        return render(request, self.template_name)
+        nome = get_object_or_404(UsuarioModel, user=request.user)
+        return render(request, self.template_name, {'nome': nome})
 
 def generate_random_password():
     # Define os caracteres permitidos (letras minúsculas, dígitos e caracteres especiais)
