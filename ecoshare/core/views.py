@@ -35,7 +35,8 @@ class CadastroView(View):
 
         # Verifique se já existe um usuário com o mesmo e-mail
         if User.objects.filter(username=email).exists():
-           return HttpResponse('Já existe um usuário com este email.')
+            messages.error(request, 'Já existe um usuário com este email.')
+            return render(request, self.template_name)
 
         # Cria o usuário
         user = User.objects.create_user(username=email, email=email)
@@ -85,7 +86,7 @@ class LoginView(View):
             return HttpResponseRedirect(reverse('homeCliente'))
         else:
             # Caso o usuário insira informações erradas
-            messages.info(request, 'E-mail ou senha incorretos.')
+            messages.error(request, 'E-mail ou senha incorretos.')
             return render(request, self.template_name)
 
 def LogoutView(request):
