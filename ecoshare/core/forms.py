@@ -2,6 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from .models import EnderecoModel, DoacaoModel, UsuarioModel
 from django.contrib.auth.forms import UserCreationForm
+# import re
 
 class EnderecoForm(forms.ModelForm):
     class Meta:
@@ -58,6 +59,7 @@ class UsuarioForm(UserCreationForm):
     def clean_cpf(self):
         cpf = self.cleaned_data['cpf']
         cpf = cpf.strip()
+        # if re.match(r'^\d{3}\.\d{3}\.\d{3}-\d{2}$', cpf):
         if len(cpf) == 11:
             return cpf
         raise ValidationError('Insira um CPF válido no formato 999.999.999-99.')
@@ -68,6 +70,7 @@ class UsuarioForm(UserCreationForm):
 
     def clean_telefone(self):
         telefone = self.cleaned_data['telefone']
+        # if re.match(r'^\(\d{2}\) \d{4,5}-\d{4}$', telefone):
         if telefone:
             return telefone
         raise ValidationError('Insira um telefone válido no formato (99) 99999-9999 ou (99) 9999-9999.')
