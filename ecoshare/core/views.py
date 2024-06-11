@@ -198,7 +198,7 @@ class DoacoesClienteView(LoginRequiredMixin, View):
             usuario.save()
 
         # Redirecionando de volta para a página de doações
-        return HttpResponseRedirect(reverse('doacoesCliente'))
+        return HttpResponseRedirect(reverse('relatorioCliente'))
         
 class BrindesClienteView(View):
     template_name = 'brindesCliente.html'

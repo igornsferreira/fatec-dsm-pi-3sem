@@ -33,12 +33,41 @@
 
 <div id="home_cliente" class="content">   
     <div class="card">
-        <h5>Olá, {{ nome }}!</h5>
-    </div>  
+        <div class="row" id="saudacao">
+            <div class="col-md-12">         
+                <h5>Olá, {{ nome }}!</h5>
+                <p class="mt-5">Neste espaço, você tem a oportunidade de registrar todas as suas embalagens e escolher o brinde que deseja resgatar. Estamos aqui para tornar sua experiência o mais simples e satisfatória possível. Se precisar de assistência ou tiver alguma dúvida, não hesite em entrar em contato conosco. Estamos prontos para ajudar.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card inner-card teste" style="width: 18rem;">
+                    <div class="card-body text-center">                           
+                      <img src="../static/img/Coração.png" class="mb-4" width="50%">
+                      <h3 class="card-title">1</h3>
+                      <h6 class="card-subtitle mb-2 text-muted">Doações registradas</h6>
+                      <button class="btn btn-custom mt-3"><a href="{% url 'doacoesCliente' %}" class="nav-link">Doar</a></button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card inner-card teste" style="width: 18rem;">
+                    <div class="card-body text-center">                           
+                      <img src="../static/img/Presente.png" class="mb-4" width="43%">
+                      <h3 class="card-title">0</h3>
+                      <h6 class="card-subtitle mb-2 text-muted">Brindes retirados</h6> 
+                      <button class="btn btn-custom mt-3"><a href="{% url 'relatorioCliente' %}" class="nav-link">Retirar</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="saudacao">
+            <div class="col-md-12">
+                <h4>Clientes parceiros</h4>
+            </div>
+        </div>
+    </div> 
 </div>
-
-
-
 
 
 </body>

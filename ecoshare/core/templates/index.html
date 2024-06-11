@@ -76,13 +76,12 @@
 <!-- sobre -->
 <section id="sobre">
   <div class="container">
-    <div class="row mt-5">
+    <div class="row mt-4">
       <div class="col-md-6">
         <h2>Sobre a EcoShare</h2>
         <p>Somos uma empresa dedicada à sustentabilidade e ao combate à fome. Nosso projeto inovador visa transformar resíduos plásticos em uma oportunidade para alimentar pessoas necessitadas. Através da nossa iniciativa, incentivamos a doação de embalagens plásticas usadas, que são trocadas por alimentos perecíveis.</p>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="../static/img/Sobre-nós-removebg-preview.png" width="40%">
+      <div class="col-md-6">
       </div>
     </div>
   </div>
@@ -115,29 +114,31 @@
         <h5>(19) 1234-5678</h5>
       </div>
       <div class="col-md-6">
-        <div class="row">
-          <div class="col-md-12">
-            <label for="nome" class="form-label">Nome completo</label>
-            <input type="nome" class="form-control mb-3" id="nome" placeholder="Digite seu nome">
+        <form>
+          <div class="row">
+            <div class="col-md-12">
+              <label for="nome" class="form-label mb-3">Nome completo</label>
+              <input type="nome" class="form-control mb-4" id="nome" placeholder="Digite seu nome">
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <label for="email" class="form-label">E-mail</label>
-            <input type="email" class="form-control mb-3" id="email" placeholder="Digite seu e-mail">
+          <div class="row">
+            <div class="col-md-6">
+              <label for="email" class="form-label mb-3">E-mail</label>
+              <input type="email" class="form-control mb-4" id="email" placeholder="Digite seu e-mail">
+            </div>
+            <div class="col-md-6">
+              <label for="telefone" class="form-label mb-3">Telefone</label>
+              <input type="telefone" class="form-control mb-4" id="telefone" placeholder="Digite seu telefone">
+            </div>
           </div>
-          <div class="col-md-6">
-            <label for="telefone" class="form-label">Telefone</label>
-            <input type="telefone" class="form-control mb-3" id="telefone" placeholder="Digite seu telefone">
+          <div class="row">
+            <div class="col-md-12">
+              <label for="comentario" class="form-label mb-3">Comentário</label>
+              <textarea class="form-control" id="comentario" placeholder="Escreva uma mensagem" rows="3"></textarea>
+              <button class="btn btn-custom mt-4 mb-3"><a href="#" class="nav-link">Enviar</a></button>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <label for="comentario" class="form-label">Comentário</label>
-            <textarea class="form-control" id="comentario" placeholder="Escreva uma mensagem" rows="3"></textarea>
-            <button class="btn btn-custom mt-5 mb-3"><a href="#" class="nav-link">Enviar</a></button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>

@@ -36,49 +36,47 @@
 
 <div id="brindes" class="content">
     <div class="card">
-        <form action="" method="post">
-            {% csrf_token %}
-            <h5>Brindes disponíveis</h5>
-            <input type="hidden" name="action" value="cadastrar">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="card inner-card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://us.123rf.com/450wm/topntp/topntp1806/topntp180600513/102427979-arroz-de-jasmim-tailand%C3%AAs-cru-branco.jpg?ver=6" alt="Arroz">
-                        <div class="card-body text-center">
-                            <h6 class="card-text">Arroz</h6>
-                            <p class="card-text">Peso do pacote - 5KG</p>
-                            <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
-                        </div>
-                    </div>
-                    <div class="card inner-card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://img.freepik.com/free-photo/pasta-wooden-cups-black-surface_114579-16267.jpg?t=st=1716991012~exp=1716994612~hmac=9c12f9b059cf55c50cb2e8edbe980c07c4f7ae1996cd9ff4f45d14262d51c51f&w=740" alt="Macarrão">
-                        <div class="card-body text-center">
-                            <h6 class="card-text">Macarrão</h6>
-                            <p class="card-text">Peso do pacote - 1KG</p>
-                            <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
-                        </div>
-                    </div> 
-                </div>
-                <div class="col-sm-6">
-                    <div class="card inner-card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4sxO9RPm-S3H6h7Yy0GUiPMwxXmCaHWbUzwx3RHaVOz-9_BqBPYgNKvvAC8KgwyWT_N0&usqp=CAU" alt="Feijão">
-                        <div class="card-body text-center">
-                            <h6 class="card-text">Feijão</h6>
-                            <p class="card-text">Peso do pacote - 2KG</p>
-                            <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
-                        </div>
-                    </div>
-                    <div class="card inner-card" style="width: 18rem;">
-                        <img class="card-img-top" src="https://img.freepik.com/fotos-gratis/vista-superior-de-diferentes-tipos-e-formas-de-acucar-em-uma-tigela-e-copos-em-fundo-preto-de-madeira_141793-7631.jpg" alt="Açúcar">
-                        <div class="card-body text-center">
-                            <h6 class="card-text">Açúcar</h6>
-                            <p class="card-text">Peso do pacote - 1KG</p>
-                            <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
-                        </div>
-                    </div>          
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h5>Brindes disponíveis</h5>
             </div>
-        </form>
+            <div class="col-sm-6">
+                <div class="card inner-card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://us.123rf.com/450wm/topntp/topntp1806/topntp180600513/102427979-arroz-de-jasmim-tailand%C3%AAs-cru-branco.jpg?ver=6" alt="Arroz">
+                    <div class="card-body text-center">
+                        <h6 class="card-text">Arroz</h6>
+                        <p class="card-text">Peso do pacote - 5KG</p>
+                        <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
+                    </div>
+                </div>
+                <div class="card inner-card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://img.freepik.com/free-photo/pasta-wooden-cups-black-surface_114579-16267.jpg?t=st=1716991012~exp=1716994612~hmac=9c12f9b059cf55c50cb2e8edbe980c07c4f7ae1996cd9ff4f45d14262d51c51f&w=740" alt="Macarrão">
+                    <div class="card-body text-center">
+                        <h6 class="card-text">Macarrão</h6>
+                        <p class="card-text">Peso do pacote - 1KG</p>
+                        <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
+                    </div>
+                </div> 
+            </div>
+            <div class="col-sm-6">
+                <div class="card inner-card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4sxO9RPm-S3H6h7Yy0GUiPMwxXmCaHWbUzwx3RHaVOz-9_BqBPYgNKvvAC8KgwyWT_N0&usqp=CAU" alt="Feijão">
+                    <div class="card-body text-center">
+                        <h6 class="card-text">Feijão</h6>
+                        <p class="card-text">Peso do pacote - 2KG</p>
+                        <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
+                    </div>
+                </div>
+                <div class="card inner-card" style="width: 18rem;">
+                    <img class="card-img-top" src="https://img.freepik.com/fotos-gratis/vista-superior-de-diferentes-tipos-e-formas-de-acucar-em-uma-tigela-e-copos-em-fundo-preto-de-madeira_141793-7631.jpg" alt="Açúcar">
+                    <div class="card-body text-center">
+                        <h6 class="card-text">Açúcar</h6>
+                        <p class="card-text">Peso do pacote - 1KG</p>
+                        <button class="btn btn-custom"><a href="{% url 'relatorioCliente' %}" class="nav-link">Resgatar</a></button>
+                    </div>
+                </div>          
+            </div>
+        </div>
     </div>
 </div>
 

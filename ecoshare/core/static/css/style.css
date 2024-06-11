@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/*** Index ***/ 
+/*** INDEX ***/ 
 
-/* Navbar transparente */
+/* navbar transparente */
 .transparent-navbar {
     background-color: rgba(255, 255, 255, 0); 
     transition: background-color 0.3s ease;
@@ -16,7 +16,7 @@
     font-weight: 600;
 }
 
-/* Navbar com fundo sólido */
+/* navbar com fundo sólido */
 .solid-navbar {
     background-color: rgb(4, 63, 35); 
     box-shadow: 0px 0px 5px grey;
@@ -136,10 +136,12 @@
 /** sobre nos **/ 
 
 #sobre {
-    background-color: #f2ecddff; 
-    padding: 75px;
+    background-image: url(../img/Sobre\ nós.png);
+    background-size: 100% auto;
+    height: 80%; 
+    padding: 65px;
     color: #1d2603;
-    margin: 120px 0;
+    margin: 100px 0;
 }
 
 #sobre h2 {
@@ -175,9 +177,13 @@
 /** suporte **/ 
 
 #contato {
-    margin-bottom: 80px;
+    margin-bottom: 60px;
     font-family: "Poppins", sans-serif;
     color: #01400b;
+}
+
+#contato form {
+    padding: 10px 45px;
 }
 
 #contato h1 {
@@ -190,7 +196,7 @@
     color: rgb(235, 176, 16);
 }
 
-/** Rodapé **/
+/** rodapé **/
 
 footer {
     background: rgb(46, 45, 45);
@@ -261,7 +267,7 @@ footer span {
 
 /*** LOGIN E CADASTRO ***/ 
 
-/* navbar */
+/** navbar **/
 
 .logo {
     transition: all 0.2s;
@@ -302,7 +308,7 @@ nav {
     border: 1px solid rgb(235, 240, 148) !important;
 }
 
-/* body */
+/** body **/
 
 #left {
     background-image: url(../img/EcoShare-Login.png);
@@ -311,7 +317,11 @@ nav {
 }
 
 #cadastro {
-    height: 100vh; 
+    height: 100vh;  
+}
+
+#cadastro label{
+    font-family: "Poppins", Helvetica, "sans-serif";
 }
 
 #right {
@@ -322,7 +332,11 @@ nav {
     height: 100vh;
 }
 
-/* Formulario */
+#login label {
+    font-family: "Poppins", Helvetica, "sans-serif";
+}
+
+/** formulario **/
 
 #login form {
     margin-top: 50px;
@@ -408,7 +422,7 @@ textarea.form-control:focus {
     overflow: auto;
 }
   
-/* links */
+/** links **/
 .sidebar a {
     display: block;
     color: #ffffffff;
@@ -418,7 +432,7 @@ textarea.form-control:focus {
     font-size: 16px;
 }
   
-/* link activate */
+/** link activate **/
 .sidebar a.active {
     background-color: #ffffffff;
     color: #04723cff;
@@ -427,7 +441,7 @@ textarea.form-control:focus {
     box-shadow: 2px 2px 15px gray;
 }
   
-/* hover link */
+/** hover link **/
 .sidebar a:hover:not(.active) {
     background-color: #50be50ff;
     color: #ffffffff;
@@ -436,7 +450,7 @@ textarea.form-control:focus {
     box-shadow: 0px 0px 5px rgb(1, 207, 108);
 }
 
-/* icones */ 
+/** icones **/ 
 i {
     color: #50be50ff;
 }
@@ -445,7 +459,7 @@ i {
     color: #ffffffff;;
 }
   
-/* Conteúdo */
+/** Conteúdo **/
 .content {
     margin-left: 50px; 
     padding: 20px; 
@@ -457,9 +471,17 @@ i {
     overflow-y: auto; 
 }
 
+/*** HOME ***/ 
+
+
+
+.teste {
+    box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.753);
+}
+
 /*** PERFIL DO CLIENTE  ***/ 
 
-/* card */
+/** card **/
 
 .card {
     padding: 30px;
@@ -501,6 +523,15 @@ i {
     border-color: rgba(201, 197, 197, 0.541);
 }
 
+.card {
+    font-size: 15px;
+    font-family: "Poppins", Helvetica, "sans-serif";
+}
+
+.card label {
+    color: black;
+}
+
 /*** BRINDES ***/ 
 
 .card .inner-card {
@@ -529,7 +560,6 @@ i {
 #relatorio table td {
     padding: 20px;
 }
-
 
 .btn-cancel  {
     color: #ffffffff !important;
