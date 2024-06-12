@@ -1,43 +1,76 @@
 {
-  "nome_completo": "Nome Sobrenome",
-  "cpf": "000.000.000-00",
-  "email": "exemplo@email.com",
-  "senha": "password",
-  "telefone": "(00) 00000-0000",
-  "data_nascimento": "YYYY-MM-DD",
-  "endereco": {
-      "cep": "00000-000",
-      "rua": "Nome da Rua",
-      "bairro": "Nome do Bairro",
-      "numero": "000",
-      "cidade": "Nome da Cidade",
-      "estado": "UF",
-      "pais": "Nome do País"
-  },
-  "doacoes": [
+    "_id": {
+      "$oid": "6660f66ecac6cb0d7937ffc3"
+    },
+    "user_id": 1,
+    "nome_completo": "João Silva",
+    "cpf": "123.456.789-00",
+    "email": "joao.silva@example.com",
+    "senha": "senha1234",
+    "telefone": "(11) 91234-5678",
+    "data_nascimento": {
+      "$date": "1990-01-01T00:00:00.000Z"
+    },
+    "endereco": {
+      "_id": {
+        "$oid": "6660f66ecac6cb0d7937ffc2"
+      },
+      "cep": "01001-000",
+      "rua": "Rua Exemplo",
+      "bairro": "Centro",
+      "numero": "123",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "pais": "Brasil"
+    },
+    "doacoes": [
       {
-          "id": "ObjectId()",
-          "material_doado": "Material 1",
-          "peso": 10,
-          "data": "YYYY-MM-DD",
-          "item_recebido": "Item 1",
-          "validacao": true
+        "_id": {
+          "$oid": "666474a05e643794b5803947"
+        },
+        "material_doado": "Garrafa Pet",
+        "peso": 2,
+        "data": {
+          "$date": "2024-06-09T00:11:28.824Z"
+        },
+        "item_recebido": "Arroz",
+        "validacao": false
       },
       {
-          "id": "ObjectId()",
-          "material_doado": "Material 2",
-          "peso": 20,
-          "data": "YYYY-MM-DD",
-          "item_recebido": "Item 2",
-          "validacao": false
+        "_id": {
+          "$oid": "666474ab5e643794b5803948"
+        },
+        "material_doado": "Detergente",
+        "peso": 3,
+        "data": {
+          "$date": "2024-06-08T21:11:39.026Z"
+        },
+        "item_recebido": "Feijão",
+        "validacao": false
       },
       {
-          "id": "ObjectId()",
-          "material_doado": "Material 3",
-          "peso": 30,
-          "data": "YYYY-MM-DD",
-          "item_recebido": "Item 3",
-          "validacao": true
+        "_id": {
+          "$oid": "6664c48ad42ecbd7c68a6ab6"
+        },
+        "material_doado": "Shampoo",
+        "peso": 2,
+        "data": {
+          "$date": "2024-06-08T23:52:26.056Z"
+        },
+        "item_recebido": "Arroz",
+        "validacao": false
+      },
+      {
+        "_id": {
+          "$oid": "66665343a1098280d3f13cea"
+        },
+        "material_doado": "Garrafa Pet",
+        "peso": 2,
+        "data": {
+          "$date": "2024-06-10T01:13:39.529Z"
+        },
+        "item_recebido": "Arroz",
+        "validacao": false
       }
-  ]
-}
+    ]
+  }  
