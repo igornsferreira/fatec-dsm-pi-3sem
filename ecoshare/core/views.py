@@ -87,10 +87,6 @@ class LoginView(View):
         
         user = authenticate(username=email, password=senha)
 
-        # Verifique se já existe um usuário com o mesmo e-mail
-        if User.objects.filter(username=email).exists():
-           return HttpResponse('Já existe um usuário com este email.')
-
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(reverse('homeCliente'))
