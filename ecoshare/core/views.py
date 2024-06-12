@@ -32,10 +32,17 @@ class CadastroView(View):
         nome_completo = request.POST.get('nome_completo')
         email = request.POST.get('email')
         senha = request.POST.get('senha')
+        cpf = request.POST.get('cpf')
 
         # Verifique se já existe um usuário com o mesmo e-mail
         if User.objects.filter(username=email).exists():
-           return HttpResponse('Já existe um usuário com este email.')
+           messages.error(request, 'Já existe um usuário com este email.')
+        #    return HttpResponse('Já existe um usuário com este email.')
+
+        # Verifique se já existe um usuário com o mesmo CPF
+        if UsuarioModel.objects.filter(cpf=cpf).exists():
+           messages.error(request, 'Já existe um usuário com este CPF.')
+        #    return HttpResponse('Já existe um usuário com este CPF.')
 
         # Cria o usuário
         user = User.objects.create_user(username=email, email=email)
@@ -80,6 +87,10 @@ class LoginView(View):
         
         user = authenticate(username=email, password=senha)
 
+        # Verifique se já existe um usuário com o mesmo e-mail
+        if User.objects.filter(username=email).exists():
+           return HttpResponse('Já existe um usuário com este email.')
+
         if user is not None:
             login(request, user)
             return HttpResponseRedirect(reverse('homeCliente'))
@@ -115,6 +126,14 @@ class RelatorioClienteView(View):
     def get(self, request):
         usuario = get_object_or_404(UsuarioModel, user=request.user)
         doacoes = usuario.doacoes
+
+        #teste 
+
+        filtro_status = request.GET.get('status')
+        if filtro_status == 'retirado':
+            doacoes = [doacao for doacao in doacoes if doacao.get('validacao')]
+        elif filtro_status == 'pendente':
+            doacoes = [doacao for doacao in doacoes if not doacao.get('validacao')]
 
         for doacao in doacoes:
             doacao['id'] = doacao.pop('_id')

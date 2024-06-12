@@ -33,11 +33,26 @@
 
 <div id="relatorio" class="content">
   <div class="card">
-    <form action="" method="post">
-      {% csrf_token %}
-      <h5>Minhas doações</h5>
+    <div class="row">
+      <div class="col-md-12">
+        <h5>Minhas doações</h5>
+      </div>
+    </div>
+      <form action="" method="get">
+        <div class="row mt-5 mb-3">
+          <div class="col-sm-12 d-flex justify-content-end">
+            <label for="status" class="form-label mt-2">Filtrar por status:</label>
+            <select name="status" id="status" class="form-control">
+              <option value="">Todos</option>
+              <option value="pendente" {% if request.GET.status == "pendente" %}selected{% endif %}>Pendente</option>
+              <option value="retirado" {% if request.GET.status == "retirado" %}selected{% endif %}>Retirado</option>
+            </select>
+            <button type="submit" class="btn btn-relatorio">Filtrar</button>
+          </div>
+        </div>
+      </form>
       <input type="hidden" name="action" value="relatorio">
-      <div class="row" id="itens">
+      <div class="row mb-5" id="itens">
         <div class="col-sm-6"> 
           <table class="table">
             <thead>
@@ -60,34 +75,48 @@
                 <td>{{ doacao.material_doado }}</td>                            
                 <td>{{ doacao.peso }}KG</td>
                 <td>{{ doacao.item_recebido }}</td>
-                <td>{{ doacao.validacao|yesno:"Autorizado,Pendente" }}</td>
+                <td>{{ doacao.validacao|yesno:"Retirado,Pendente" }}</td>
+                
+                {% if doacao.validacao %}
                 <td>
-                  <!-- Button trigger modal -->
-                  <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#modal{{ forloop.counter }}">
+                  <button type="button" class="btn btn-custom" disabled>
                     Retirar
-                  </button>                              
-                  <!-- Modal -->
-                  <div class="modal fade" id="modal{{ forloop.counter }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="staticBackdropLabel">Instruções da retirada</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          <p>Parabéns, você ganhou o brinde tão esperado! Para retirá-lo, basta dirigir-se ao local de coleta. 
-                          <P><strong>Endereço:</strong> Rua Fatec, N° 123, Centro, Araras/SP. </P>
-                          <P><strong>Horário de atendimento:</strong> Segunda-Feira à Sexta-Feira, das 08:30 até 16:30 </P>
-                          <p>Ao chegar lá, se identifique com um documento físico e informe a senha: <strong>{{ senha_aleatoria }}</strong></p>
-                          <p>Lembre-se de que a troca só será efetuada se todos os resíduos doados estiverem em boas condições, caso contrário, a troca será cancelada.</p>  
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
-                        </div>
+                  </button> 
+                </td>
+                <td>
+                  <button type="button" class="btn btn-cancel" disabled>
+                    Cancelar
+                  </button> 
+                </td>
+                {% else %}
+                
+                <td>  
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#modal{{ forloop.counter }}">
+                  Retirar
+                </button>                              
+                <!-- Modal -->
+                <div class="modal fade" id="modal{{ forloop.counter }}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Instruções da retirada</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <p>Parabéns, você ganhou o brinde tão esperado! Para retirá-lo, basta dirigir-se ao local de coleta. 
+                        <P><strong>Endereço:</strong> Rua Fatec, N° 123, Centro, Araras/SP. </P>
+                        <P><strong>Horário de atendimento:</strong> Segunda-Feira à Sexta-Feira, das 08:30 até 16:30 </P>
+                        <p>Ao chegar lá, se identifique com um documento físico e informe a senha: <strong>{{ senha_aleatoria }}</strong></p>
+                        <p>Lembre-se de que a troca só será efetuada se todos os resíduos doados estiverem em boas condições, caso contrário, a troca será cancelada.</p>  
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
                       </div>
                     </div>
                   </div>
-                  <!-- End - Modal -->
+                </div>
+                <!-- End - Modal -->
                 </td>                
                 <td>
                   <!-- Button trigger modal -->
@@ -117,14 +146,14 @@
                     </div>
                   </div>
                   <!-- End - Modal -->
-              </td>                          
+                </td>                  
+                {% endif %} 
+                {% endfor %}             
               </tr>
-              {% endfor %}
             </tbody>
           </table>   
         </div>                
       </div>
-    </form>
   </div>
 </div>
 

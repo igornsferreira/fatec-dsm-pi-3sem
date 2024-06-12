@@ -473,10 +473,9 @@ i {
 
 /*** HOME ***/ 
 
-
-
-.teste {
+#home_cliente .inner-card {
     box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.753);
+    margin: 50px 100px;
 }
 
 /*** PERFIL DO CLIENTE  ***/ 
@@ -501,10 +500,6 @@ i {
     margin: 6px;
 }
 
-.card .form-control {
-    width: 70%;
-}
-
 .card h5 {
     display: inline !important;
     border-bottom: 2px solid #d75a1aff;
@@ -513,11 +508,9 @@ i {
 .card select.form-control {
     border-color: rgba(201, 197, 197, 0.541); 
     outline: none;
-    width: 70%;
 }
 
 .card select:focus {
-    width: 70%;
     outline: none;
     box-shadow: 0px 0px 3px rgb(255, 245, 112);
     border-color: rgba(201, 197, 197, 0.541);
@@ -545,15 +538,19 @@ i {
 
 /*** RELATORIOS  ***/
 
-#relatorio .card form {
-    display: flex;
-    flex-direction: column;
+#relatorio #itens{
     align-items: center;
-    justify-content: center;
+    text-align: center;
 }
 
-#relatorio .card form h5 {
-    align-self: flex-start;
+#relatorio form select {
+    width: auto;
+    margin: 0 20px;
+}
+
+#relatorio form .btn-relatorio{
+    background-color: orange;
+    color: white;
 }
 
 #relatorio table th,
