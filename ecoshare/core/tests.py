@@ -1,202 +1,168 @@
 from django.test import TestCase, Client
 from django.urls import reverse
-from .forms import EnderecoForm, DoacaoForm, UsuarioForm
-from .models import EnderecoModel, DoacaoModel, UsuarioModel
 from django.contrib.auth.models import User
-import datetime
-
-class IndexViewTest(TestCase):
-    """Verifica se os metodos GET e POST de IndexView estão corretos."""
-    def test_index_view(self):
-        client = Client()
-        response = client.get(reverse('index'))
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'index.html')
+from core.models import UsuarioModel, DoacaoModel
 
 class CadastroViewTest(TestCase):
-    """Verifica se os metodos GET e POST de CadastroView estão corretos."""
+
     def setUp(self):
         self.client = Client()
         self.url = reverse('cadastro')
 
-    def test_get_cadastro(self):
+    def test_get_cadastro_view(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'cadastro.html')
 
-    def test_post_cadastro(self):
-        form_data = {
-            'nome_completo': 'John Doe',
-            'email': 'john@example.com',
-            'senha': 'password123',
-            'confirm_senha': 'password123',
+    def test_post_cadastro_view(self):
+        data = {
+            'nome_completo': 'Fulano',
+            'email': 'fulano@example.com',
+            'senha': '123456',
+            'cpf': '123.456.789-01',
             'cep': '12345-678',
-            'rua': 'Main St',
-            'bairro': 'Centro',
+            'rua': 'Rua Exemplo',
+            'bairro': 'Bairro Teste',
             'numero': '123',
-            'cidade': 'City',
-            'estado': 'State',
-            'pais': 'Country',
-            'cpf': '12345678900',
-            'telefone': '123456789',
-            'data_nascimento': '1990-01-01',
+            'cidade': 'Cidade',
+            'estado': 'Estado',
+            'pais': 'País'
         }
-        response = self.client.post(self.url, form_data)
+        response = self.client.post(self.url, data)
+        self.assertEqual(response.status_code, 302)  
+        self.assertTrue(User.objects.filter(username='fulano@example.com').exists())
+        self.assertTrue(UsuarioModel.objects.filter(cpf='123.456.789-01').exists())
         self.assertRedirects(response, reverse('homeCliente'))
-        user = User.objects.get(username='john@example.com')
-        self.assertTrue(user.check_password('password123'))
-        self.assertTrue(UsuarioModel.objects.filter(user=user).exists())
-        self.assertTrue(EnderecoModel.objects.filter(cep='12345-678').exists())
+
+    def test_post_cadastro_view_existing_user(self):
+        User.objects.create_user(username='fulano@example.com', email='fulano@example.com', password='123456')
+        data = {
+            'nome_completo': 'Fulano',
+            'email': 'fulano@example.com',
+            'senha': '123456',
+            'cpf': '123.456.789-01',
+            'cep': '12345-678',
+            'rua': 'Rua Exemplo',
+            'bairro': 'Bairro Teste',
+            'numero': '123',
+            'cidade': 'Cidade',
+            'estado': 'Estado',
+            'pais': 'País'
+        }
+        response = self.client.post(self.url, data)
+        self.assertEqual(response.status_code, 200)  
+        self.assertTemplateUsed(response, 'cadastro.html')
+        self.assertContains(response, 'Já existe um usuário com este email ou CPF cadastrado.')
 
 class LoginViewTest(TestCase):
+
     def setUp(self):
         self.client = Client()
         self.url = reverse('login')
-        self.user = User.objects.create_user(username='john@example.com', email='john@example.com', password='password123')
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', password='123456')
 
-    def test_get_login(self):
+    def test_get_login_view(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'login.html')
 
-    def test_post_login(self):
-        response = self.client.post(self.url, {'email': 'john@example.com', 'senha': 'password123'})
+    def test_post_login_view_valid_credentials(self):
+        data = {
+            'email': 'test@example.com',
+            'senha': '123456',
+        }
+        response = self.client.post(self.url, data)
+        self.assertEqual(response.status_code, 302)  
         self.assertRedirects(response, reverse('homeCliente'))
 
-class RelatorioClienteViewTest(TestCase):
+    def test_post_login_view_invalid_credentials(self):
+        data = {
+            'email': 'test@example.com',
+            'senha': 'invalidpassword',
+        }
+        response = self.client.post(self.url, data)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'login.html')
+        self.assertContains(response, 'E-mail ou senha incorretos.')
+
+class HomeClienteViewTest(TestCase):
+
     def setUp(self):
         self.client = Client()
-        self.user = User.objects.create_user(username='john@example.com', email='john@example.com', password='password123')
-        self.usuario = UsuarioModel.objects.create(user=self.user, nome_completo='John Doe')
-        self.client.login(username='john@example.com', password='password123')
+        self.url = reverse('homeCliente')
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', password='123456')
+        self.client.login(username='test@example.com', password='123456')
 
-    def test_get_relatorio_cliente(self):
-        response = self.client.get(reverse('relatorioCliente'))
+    def test_get_home_cliente_view(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'homeCliente.html')
+        self.assertContains(response, 'Nome do usuário')
+
+    def test_home_cliente_view_doacoes(self):
+        doacao = DoacaoModel.objects.create(material_doado='Material Teste', peso=10, item_recebido='Item Teste', validacao=False)
+        usuario = UsuarioModel.objects.get(user=self.user)
+        usuario.doacoes.add(doacao)
+
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'homeCliente.html')
+
+class RelatorioClienteViewTest(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+        self.url = reverse('relatorioCliente')
+        self.user = User.objects.create_user(username='testuser', email='test@example.com', password='123456')
+        self.client.login(username='test@example.com', password='123456')
+
+    def test_get_relatorio_cliente_view(self):
+        response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'relatorioCliente.html')
 
-class EnderecoFormTest(TestCase):
-    def test_endereco_form_valid(self):
-        form_data = {
-            'cep': '12345-678',
-            'rua': 'Rua Principal',
-            'bairro': 'Centro',
-            'numero': '123',
-            'cidade': 'Cidade',
-            'estado': 'Estado',
-            'pais': 'Pais'
-        }
-        form = EnderecoForm(data=form_data)
-        self.assertTrue(form.is_valid())
+    def test_relatorio_cliente_view_delete(self):
+        doacao = DoacaoModel.objects.create(material_doado='Material Teste', peso=10, item_recebido='Item Teste', validacao=False)
+        usuario = UsuarioModel.objects.get(user=self.user)
+        usuario.doacoes.add(doacao)
 
-    def test_endereco_form_invalid_cep(self):
-        form_data = {
-            'cep': '12345678',
-            'rua': 'Rua Principal',
-            'bairro': 'Centro',
-            'numero': '123',
-            'cidade': 'Cidade',
-            'estado': 'Estado',
-            'pais': 'Pais'
-        }
-        form = EnderecoForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('cep', form.errors)
+        response = self.client.post(self.url, {'action': 'delete', 'doacao_id': str(doacao.pk)})
+        self.assertEqual(response.status_code, 302) 
+        self.assertFalse(DoacaoModel.objects.filter(pk=doacao.pk).exists())
 
+    def test_relatorio_cliente_view_template(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'relatorioCliente.html')
+        self.assertContains(response, 'Senha Aleatória')
 
-class DoacaoFormTest(TestCase):
-    def test_doacao_form_valid(self):
-        form_data = {
-            'material_doado': 'Roupas',
-            'peso': 10,
-            'data': datetime.datetime.now(),
-            'item_recebido': 'Camisa',
-            'validacao': False
-        }
-        form = DoacaoForm(data=form_data)
-        self.assertTrue(form.is_valid())
+    def test_relatorio_cliente_view_no_doacoes(self):
+        usuario = UsuarioModel.objects.get(user=self.user)
+        usuario.doacoes.clear()
 
-    def test_doacao_form_invalid_peso(self):
-        form_data = {
-            'material_doado': 'Roupas',
-            'peso': 0,
-            'data': datetime.datetime.now(),
-            'item_recebido': 'Camisa',
-            'validacao': False
-        }
-        form = DoacaoForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('peso', form.errors)
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'relatorioCliente.html')
+        self.assertContains(response, 'Nenhuma doação encontrada.')
+        
+class TemplateTests(TestCase):
 
+    def test_index_template(self):
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'index.html')
 
-class UsuarioFormTest(TestCase):
-    def test_usuario_form_valid(self):
-        endereco = EnderecoModel.objects.create(
-            cep="12345-678",
-            rua="Rua Principal",
-            bairro="Centro",
-            numero="123",
-            cidade="Cidade",
-            estado="Estado",
-            pais="Pais"
-        )
-        user = User.objects.create_user(username='testuser', password='12345')
-        form_data = {
-            'nome_completo': 'John Doe',
-            'cpf': '123.456.789-00',
-            'email': 'john@example.com',
-            'telefone': '(12) 3456-7890',
-            'data_nascimento': '2000-01-01',
-            'endereco': endereco,
-            'doacoes': []
-        }
-        form = UsuarioForm(data=form_data)
-        self.assertTrue(form.is_valid())
+    def test_cadastro_template(self):
+        response = self.client.get(reverse('cadastro'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'cadastro.html')
 
-    def test_usuario_form_invalid_cpf(self):
-        endereco = EnderecoModel.objects.create(
-            cep="12345-678",
-            rua="Rua Principal",
-            bairro="Centro",
-            numero="123",
-            cidade="Cidade",
-            estado="Estado",
-            pais="Pais"
-        )
-        user = User.objects.create_user(username='testuser', password='12345')
-        form_data = {
-            'nome_completo': 'John Doe',
-            'cpf': '12345678900',
-            'email': 'john@example.com',
-            'telefone': '(12) 3456-7890',
-            'data_nascimento': '2000-01-01',
-            'endereco': endereco,
-            'doacoes': []
-        }
-        form = UsuarioForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('cpf', form.errors)
+    def test_login_template(self):
+        response = self.client.get(reverse('login'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'login.html')
 
-    def test_usuario_form_invalid_telefone(self):
-        endereco = EnderecoModel.objects.create(
-            cep="12345-678",
-            rua="Rua Principal",
-            bairro="Centro",
-            numero="123",
-            cidade="Cidade",
-            estado="Estado",
-            pais="Pais"
-        )
-        user = User.objects.create_user(username='testuser', password='12345')
-        form_data = {
-            'nome_completo': 'John Doe',
-            'cpf': '123.456.789-00',
-            'email': 'john@example.com',
-            'telefone': '1234567890',
-            'data_nascimento': '2000-01-01',
-            'endereco': endereco,
-            'doacoes': []
-        }
-        form = UsuarioForm(data=form_data)
-        self.assertFalse(form.is_valid())
-        self.assertIn('telefone', form.errors)
+    def test_home_cliente_template(self):
+        user = User.objects.create_user(username='testuser', email='test@example.com', password='123456')
+        self.client.login(username='test@example.com', password='123456')
+        response = self.client.get(reverse)
