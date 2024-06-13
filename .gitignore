@@ -17,3 +17,6 @@ venv
 
 # Ignorar arquivos de configuração de ambiente
 .vscode
+
+# Ignorar arquivos de cobertura
+.coverage
