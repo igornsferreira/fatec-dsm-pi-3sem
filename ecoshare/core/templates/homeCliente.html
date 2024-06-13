@@ -44,7 +44,7 @@
                 <div class="card inner-card aaa" style="width: 18rem;">
                     <div class="card-body text-center">                           
                       <img src="../static/img/Coração.png" class="mb-4" width="50%">
-                      <h3 class="card-title">1</h3>
+                      <h3 class="card-title">{{ quantidade_doacoes }}</h3>
                       <h6 class="card-subtitle mb-2 text-muted">Doações registradas</h6>
                       <button class="btn btn-custom mt-3"><a href="{% url 'doacoesCliente' %}" class="nav-link">Doar</a></button>
                     </div>
@@ -52,7 +52,7 @@
                 <div class="card inner-card" style="width: 18rem;">
                     <div class="card-body text-center">                           
                       <img src="../static/img/Presente.png" class="mb-4" width="43%">
-                      <h3 class="card-title">0</h3>
+                      <h3 class="card-title">{{ qtd_doacoes_validadas }}</h3>
                       <h6 class="card-subtitle mb-2 text-muted">Brindes retirados</h6> 
                       <button class="btn btn-custom mt-3"><a href="{% url 'relatorioCliente' %}" class="nav-link">Retirar</a></button>
                     </div>

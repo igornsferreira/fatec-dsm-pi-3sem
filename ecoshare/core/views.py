@@ -106,6 +106,22 @@ class HomeClienteView(View):
     def get(self, request):
         nome = get_object_or_404(UsuarioModel, user=request.user)
         return render(request, self.template_name, {'nome': nome})
+    
+    def get(self, request):
+        usuario = get_object_or_404(UsuarioModel, user=request.user)
+        quantidade_doacoes = len(usuario.doacoes)
+        
+        # filtra as doacoes validadas
+        doacoes_validadas = [doacao for doacao in usuario.doacoes if doacao.get('validacao') is True]
+        qtd_doacoes_validadas = len(doacoes_validadas)
+
+        return render(request, self.template_name, {
+            'nome': usuario,
+            'quantidade_doacoes': quantidade_doacoes,
+            'qtd_doacoes_validadas': qtd_doacoes_validadas
+        })
+    
+
 
 def generate_random_password():
     # Define os caracteres permitidos (letras minúsculas, dígitos e caracteres especiais)
@@ -122,8 +138,6 @@ class RelatorioClienteView(View):
     def get(self, request):
         usuario = get_object_or_404(UsuarioModel, user=request.user)
         doacoes = usuario.doacoes
-
-        #teste 
 
         filtro_status = request.GET.get('status')
         if filtro_status == 'retirado':
