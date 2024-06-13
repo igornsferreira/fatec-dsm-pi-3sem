@@ -34,46 +34,47 @@ class CadastroView(View):
         senha = request.POST.get('senha')
         cpf = request.POST.get('cpf')
 
-        # Verifique se já existe um usuário com o mesmo e-mail
-        if User.objects.filter(username=email).exists():
-           messages.error(request, 'Já existe um usuário com este email.')
-        #    return HttpResponse('Já existe um usuário com este email.')
+        try:
+            # Verifique se já existe um usuário com o mesmo e-mail ou CPF
+            if User.objects.filter(username=email).exists() or UsuarioModel.objects.filter(cpf=cpf).exists():
+                messages.error(request, 'Já existe um usuário com este email ou CPF cadastrado.')
+                return render(request, self.template_name)
 
-        # Verifique se já existe um usuário com o mesmo CPF
-        if UsuarioModel.objects.filter(cpf=cpf).exists():
-           messages.error(request, 'Já existe um usuário com este CPF.')
-        #    return HttpResponse('Já existe um usuário com este CPF.')
+            # Cria o usuário se não houver duplicidade
+            user = User.objects.create_user(username=email, email=email)
+            user.set_password(senha)
+            user.save()
 
-        # Cria o usuário
-        user = User.objects.create_user(username=email, email=email)
-        user.set_password(senha)
-        user.save()
+            endereco_dict = {
+                "_id": str(ObjectId()),
+                "cep": request.POST['cep'],
+                "rua": request.POST['rua'],
+                "bairro": request.POST['bairro'],
+                "numero": request.POST['numero'],
+                "cidade": request.POST['cidade'],
+                "estado": request.POST['estado'],
+                "pais": request.POST['pais']
+            }
 
-        endereco_dict = {
-            "_id": str(ObjectId()),
-            "cep": request.POST['cep'],
-            "rua": request.POST['rua'],
-            "bairro": request.POST['bairro'],
-            "numero": request.POST['numero'],
-            "cidade": request.POST['cidade'],
-            "estado": request.POST['estado'],
-            "pais": request.POST['pais']
-        }
+            usuario = UsuarioModel(
+                user=user,
+                nome_completo=request.POST['nome_completo'],
+                cpf=request.POST['cpf'],
+                email=request.POST['email'],
+                senha=request.POST['senha'],
+                telefone=request.POST['telefone'],
+                data_nascimento=request.POST['data_nascimento'],
+                endereco=endereco_dict,
+                doacoes=[]
+            )
+            usuario.save()
 
-        usuario = UsuarioModel(
-            user=user,
-            nome_completo=request.POST['nome_completo'],
-            cpf=request.POST['cpf'],
-            email=request.POST['email'],
-            senha=request.POST['senha'],
-            telefone=request.POST['telefone'],
-            data_nascimento=request.POST['data_nascimento'],
-            endereco=endereco_dict,
-            doacoes=[]
-        )
-        usuario.save()
-        
-        return HttpResponseRedirect(reverse('homeCliente'))
+            return HttpResponseRedirect(reverse('homeCliente'))
+
+        except Exception as e:
+            # Capture qualquer exceção para diagnóstico
+            messages.error(request, "Erro ao cadastrar usuário. Por favor, contate o suporte do sistema para assistência.")
+            return render(request, self.template_name)
     
 class LoginView(View):
     template_name = 'login.html'
